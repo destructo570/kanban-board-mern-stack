@@ -15,6 +15,7 @@ export const CardContainer = styled.div`
 
 export const Title = styled.h3`
   font-size: 1.1rem;
+  color: ${(props) => props.theme.colors.textPrimary};
 `;
 
 export const SubTitle = styled.p`

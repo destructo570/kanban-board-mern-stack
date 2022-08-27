@@ -3,6 +3,8 @@ import styled from "@emotion/styled/macro";
 export const Container = styled.div`
   cursor: pointer;
   min-width: 200px;
+  color: ${(props) => props.theme.colors.textPrimary};
+
   /* Disable Text Select */
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */

@@ -11,8 +11,10 @@ export const AppSideBarPane = styled.aside`
   border-right: 1px solid ${(props) => props.theme.colors.border};
 `;
 
-export const SideBarTitle = styled.h2`
+export const SideBarLogoTitle = styled.h2`
   margin-left: 0.5em;
+  color: ${(props) => props.theme.colors.textPrimary};
+
   /* Disable Text Select */
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
