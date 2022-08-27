@@ -7,11 +7,11 @@ const globalStyles = css`
   }
   html,
   body {
-    background-color: #21212d;
     font-family: "Open Sans", "Sans-serif";
     transition-duration: 0.2s;
     transition-property: background-color, color;
-    color: white;
+    background-color: ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.textPrimary};
   }
 `;
 

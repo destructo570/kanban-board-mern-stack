@@ -19,15 +19,16 @@ const common = {
 
 export const lighTheme = {
   colors: {
-    teal: "#31C3C0",
-    darkTeal: "#25807E",
-    yellow: "#F0B13D",
-    darkYellow: "#946A1D",
-    gray: "#A8BEC9",
-    darkGray: "#374B56",
-    green: "#1F3540",
-    darkGreen: "#0F212B",
-    black: "#192A32",
+    primary: "#FFFFFF",
+    secondary: "#FFFFFF",
+    secondaryLight: "#F1F1F1",
+    primaryAccent: "#6e6eba",
+    primaryAccentLight: "#7878BF",
+    secondaryAccent: "",
+    textPrimary: "#000000",
+    textSecondary: "#7D7D97",
+    background: "#F3F8FF",
+    border: "rgba(0,0,0,0.1)",
   },
   ...common,
 };

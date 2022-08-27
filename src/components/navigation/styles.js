@@ -13,12 +13,13 @@ export const Button = styled.div`
   cursor: pointer;
   display: flex;
   align-items: center;
-  background-color: ${(props) => props.theme.colors.primaryAccent};
   align-self: center;
   padding: 0.2em 0.75em;
   border-radius: 100px;
   font-size: 0.9rem;
   font-weight: 700;
+  color: white;
+  background-color: ${(props) => props.theme.colors.primaryAccent};
 
   &:hover {
     background-color: ${(props) => props.theme.colors.primaryAccentLight};
