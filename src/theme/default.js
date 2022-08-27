@@ -35,13 +35,15 @@ export const lighTheme = {
 export const darkTheme = {
   colors: {
     primary: "#2C2C38",
-    secondary: "#FFFFFF",
+    secondary: "#373744",
+    secondaryLight: "#3D3D4C",
     primaryAccent: "#6e6eba",
-    primaryAccentLight: "#7e7ecf",
+    primaryAccentLight: "#7878BF",
     secondaryAccent: "",
     textPrimary: "#FFFFFF",
-    textSecondary: "#2C2C38",
+    textSecondary: "#9696AB",
     background: "#21212D",
+    border: "rgba(250,250,250,0.1)",
   },
   ...common,
 };

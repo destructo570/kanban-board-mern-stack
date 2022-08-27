@@ -4,7 +4,9 @@ export const NavigationPane = styled.nav`
   padding: 0.75em;
   background-color: ${(props) => props.theme.colors.primary};
   display: flex;
+  width: 100%;
   align-items: center;
+  border-bottom: 1px solid ${(props) => props.theme.colors.border};
 `;
 
 export const Button = styled.div`
@@ -13,15 +15,22 @@ export const Button = styled.div`
   align-items: center;
   background-color: ${(props) => props.theme.colors.primaryAccent};
   align-self: center;
-  padding: 0.2em 0.5em;
+  padding: 0.2em 0.75em;
   border-radius: 100px;
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.primaryAccentLight};
+  }
+
   span {
     display: none;
   }
 
   @media (min-width: ${(props) => props.theme.media.medium}) {
-    border-radius: 8px;
-    padding: 0.5em 1em;
+    border-radius: 24px;
+    padding: 0.5em 1.2em;
     span {
       display: block;
       margin-left: 0.5em;

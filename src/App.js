@@ -1,10 +1,10 @@
 import React from "react";
-import NavigationContainer from "./containers/NavigationContainer";
+import Home from "./pages/home";
 
 function App() {
   return (
     <div>
-      <NavigationContainer />
+      <Home />
     </div>
   );
 }

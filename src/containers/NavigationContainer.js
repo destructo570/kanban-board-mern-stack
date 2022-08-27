@@ -13,9 +13,7 @@ export default function NavigationContainer() {
   const createNewBoardHandler = () => {};
   return (
     <Navigation>
-      <Wrapper>
-        <Logo />
-      </Wrapper>
+      <Logo />
       <Wrapper width="100%" justify="space-between" margin="0 0 0 1em">
         <DropDown
           dataSource={DUMMY_BOARDS}
@@ -24,7 +22,7 @@ export default function NavigationContainer() {
         />
         <Wrapper>
           <ActionButton
-            title="Add new board"
+            title="Add new task"
             icon={addIcon}
             handler={createNewBoardHandler}
           />
