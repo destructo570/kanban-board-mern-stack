@@ -1,0 +1,111 @@
+[
+  {
+    "id": 1,
+    "title": "Platform Launch",
+    "status": ["todo", "doing", "done"],
+    "tasks": [
+      {
+        "title": "Build UI for onboarding flow",
+        "description": "",
+        "subtasks": [],
+        "status": "todo"
+      },
+      {
+        "title": "Build UI for search",
+        "description": "",
+        "subtasks": [],
+        "status": "todo"
+      },
+      {
+        "title": "Build settings UI",
+        "description": "",
+        "subtasks": [],
+        "status": "todo"
+      },
+      {
+        "title": "QA and test all major user journeys",
+        "description": "",
+        "subtasks": [],
+        "status": "todo"
+      },
+      {
+        "title": "Desgin settings and search pages",
+        "description": "",
+        "subtasks": [],
+        "status": "doing"
+      },
+      {
+        "title": "Add account management endpoints",
+        "description": "",
+        "subtasks": [],
+        "status": "doing"
+      },
+      {
+        "title": "Design onboarding flow",
+        "description": "",
+        "subtasks": [],
+        "status": "todo"
+      },
+      {
+        "title": "Add search endpoints",
+        "description": "",
+        "subtasks": [],
+        "status": "doing"
+      },
+      {
+        "title": "Add authentication endpoints",
+        "description": "",
+        "subtasks": [],
+        "status": "doing"
+      },
+      {
+        "title": "Conduct 5 wireframe tests",
+        "description": "",
+        "subtasks": [],
+        "status": "done"
+      },
+      {
+        "title": "Create wireframe prototype",
+        "description": "",
+        "subtasks": [],
+        "status": "done"
+      },
+      {
+        "title": "Create wireframe prototype",
+        "description": "",
+        "subtasks": [],
+        "status": "done"
+      },
+      {
+        "title": "Review results of usability tests and iterate",
+        "description": "",
+        "subtasks": [],
+        "status": "done"
+      },
+      {
+        "title": "Create peper prototypes and conduct 10 usability tests with potential customers",
+        "description": "",
+        "subtasks": [],
+        "status": "done"
+      },
+      {
+        "title": "Market discovery",
+        "description": "",
+        "subtasks": [],
+        "status": "done"
+      },
+      {
+        "title": "Competitor analysis",
+        "description": "",
+        "subtasks": [],
+        "status": "done"
+      },
+      {
+        "title": "Research the market",
+        "description": "",
+        "subtasks": [],
+        "status": "done"
+      }
+    ]
+  }
+]
