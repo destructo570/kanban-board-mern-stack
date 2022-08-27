@@ -36,26 +36,23 @@ export const BoardList = styled.ul`
   padding: 0;
 `;
 
-export const ListItem = styled.li`
+export const BoardListItem = styled.li`
   display: flex;
   align-items: center;
   padding-left: 1em;
   cursor: pointer;
-
-  &:hover {
-    background-color: ${(props) => props.theme.colors.secondaryLight};
-  }
-`;
-
-export const BoardName = styled.p`
-  margin-left: 0.5em;
-  font-size: 0.9rem;
-  font-weight: 500;
   color: ${(props) => props.theme.colors.textSecondary};
 
   &:hover {
+    background-color: ${(props) => props.theme.colors.secondaryLight};
     color: ${(props) => props.theme.colors.textPrimary};
   }
+`;
+
+export const BoardListItemName = styled.p`
+  margin-left: 0.5em;
+  font-size: 0.9rem;
+  font-weight: 500;
 `;
 
 export const CreateNewTitle = styled.p`

@@ -6,7 +6,7 @@ export const CardContainer = styled.div`
   border-radius: 8px;
   width: ${({ width }) => (width ? width : "auto")};
   background-color: ${(props) => props.theme.colors.secondary};
-
+  box-shadow: ${(props) => props.theme.colors.shadow} 0px 6px 12px -2px;
   &:hover {
     cursor: pointer;
     background-color: ${(props) => props.theme.colors.secondaryLight};

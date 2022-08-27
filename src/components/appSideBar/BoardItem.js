@@ -1,12 +1,12 @@
 import React from "react";
-import { ListItem, BoardName } from "./styles";
-import { ReactComponent as BoardIcon } from "../../assets/icons/layout.svg";
+import { BoardListItem, BoardListItemName } from "./styles";
+import { ReactComponent as BoardListItemIcon } from "../../assets/icons/layout.svg";
 
 export default function BoardItem({ name }) {
   return (
-    <ListItem>
-      <BoardIcon />
-      <BoardName>{name}</BoardName>
-    </ListItem>
+    <BoardListItem>
+      <BoardListItemIcon />
+      <BoardListItemName>{name}</BoardListItemName>
+    </BoardListItem>
   );
 }

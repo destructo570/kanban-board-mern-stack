@@ -16,7 +16,7 @@ const Root = () => {
 
   return (
     <>
-      <ThemeProvider theme={lighTheme}>
+      <ThemeProvider theme={darkTheme}>
         <Global styles={globalStyles} />
         <App />
       </ThemeProvider>

@@ -29,22 +29,24 @@ export const lighTheme = {
     textSecondary: "#7D7D97",
     background: "#F3F8FF",
     border: "rgba(0,0,0,0.1)",
+    shadow: "rgba(50, 50, 93, 0.15)",
   },
   ...common,
 };
 
 export const darkTheme = {
   colors: {
-    primary: "#2C2C38",
-    secondary: "#2F2F3A",
-    secondaryLight: "#373744",
+    primary: "#323242",
+    secondary: "#323242",
+    secondaryLight: "#383849",
     primaryAccent: "#6e6eba",
     primaryAccentLight: "#7878BF",
     secondaryAccent: "",
     textPrimary: "#FFFFFF",
     textSecondary: "#9696AB",
-    background: "#21212D",
+    background: "#282836",
     border: "rgba(250,250,250,0.1)",
+    shadow: "rgba(0, 0, 0, 0.15)",
   },
   ...common,
 };
