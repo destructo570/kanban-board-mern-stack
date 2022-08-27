@@ -35,8 +35,8 @@ export const lighTheme = {
 export const darkTheme = {
   colors: {
     primary: "#2C2C38",
-    secondary: "#373744",
-    secondaryLight: "#3D3D4C",
+    secondary: "#2F2F3A",
+    secondaryLight: "#373744",
     primaryAccent: "#6e6eba",
     primaryAccentLight: "#7878BF",
     secondaryAccent: "",

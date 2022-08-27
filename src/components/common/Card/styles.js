@@ -3,8 +3,8 @@ import styled from "@emotion/styled/macro";
 export const CardContainer = styled.div`
   padding: 0.5em 0.8em;
   margin-top: 1em;
-  max-width: 320px;
   border-radius: 8px;
+  width: ${({ width }) => (width ? width : "auto")};
   background-color: ${(props) => props.theme.colors.secondary};
 
   &:hover {

@@ -1,6 +1,10 @@
 import styled from "@emotion/styled/macro";
 
-export const BoardViewPane = styled.section``;
+export const BoardViewPane = styled.section`
+  display: flex;
+  width: 100%;
+  background-color: ${(props) => props.theme.colors.background};
+`;
 
 export const StatusColumnsList = styled.ul`
   list-style: none;
@@ -31,15 +35,15 @@ export const AddColumnContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2.75em;
+  margin: 3.75em 1em 1em 1em;
   background-color: ${(props) => props.theme.colors.secondary};
-  margin-left: 1em;
-  width: 320px;
+
+  min-width: 320px;
+  max-width: 320px;
   &:hover {
     cursor: pointer;
     background-color: ${(props) => props.theme.colors.secondaryLight};
   }
-  /* padding-top: 2em; */
 `;
 
 export const AddColumnTitle = styled.p`

@@ -6,7 +6,7 @@ import {} from "./styles";
 
 export default function TaskListItem({ dataSource }) {
   return (
-    <Card>
+    <Card width="320px">
       <CardTitle>{dataSource.title}</CardTitle>
       <CardSubTitle>0 of 3 subtasks</CardSubTitle>
     </Card>

@@ -1,7 +1,6 @@
 import React from "react";
 import Wrapper from "../components/common/Wrapper/Wrapper";
 import { ReactComponent as Logo } from "../assets/icons/logo.svg";
-import { ReactComponent as More } from "../assets/icons/more.svg";
 import addIcon from "../assets/icons/add.svg";
 import DropDown from "../components/form/dropDown/DropDown";
 import ActionButton from "../components/navigation/ActionButton";
@@ -26,7 +25,6 @@ export default function NavigationContainer() {
             icon={addIcon}
             handler={createNewBoardHandler}
           />
-          <More />
         </Wrapper>
       </Wrapper>
     </Navigation>
