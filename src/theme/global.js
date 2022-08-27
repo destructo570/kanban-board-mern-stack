@@ -9,6 +9,8 @@ const globalStyles = css`
   body {
     background-color: #21212d;
     font-family: "Open Sans", "Sans-serif";
+    transition-duration: 0.2s;
+    transition-property: background-color, color;
     color: white;
   }
 `;

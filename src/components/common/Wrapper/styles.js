@@ -10,7 +10,6 @@ export const Container = styled.div`
   align-items: ${({ alignItems }) => (alignItems ? alignItems : "inherit")};
   background-color: ${({ bgColor, theme }) =>
     bgColor ? bgColor : theme.colors.primary};
-
   cursor: ${({ cursor }) => (cursor ? cursor : "auto")};
 
   /* Conditional Hover BG Color */

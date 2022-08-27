@@ -5,7 +5,9 @@ export const AppSideBarPane = styled.aside`
   flex-direction: column;
   width: fit-content;
   min-height: 100vh;
+  height: 100%;
   min-width: 250px;
+  justify-content: space-between;
   border-right: 1px solid ${(props) => props.theme.colors.border};
 `;
 
@@ -58,4 +60,18 @@ export const CreateNewTitle = styled.p`
   &:hover {
     color: ${(props) => props.theme.colors.primaryAccentLight};
   }
+`;
+
+export const ThemeSwitchPane = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) => props.theme.colors.background};
+  border-radius: 8px;
+  padding: 0.65rem;
+  margin: 3em 1.5em;
+`;
+export const ThemeIcon = styled.img`
+  max-width: 18px;
 `;

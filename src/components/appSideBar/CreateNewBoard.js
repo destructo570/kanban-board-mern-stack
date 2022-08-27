@@ -10,6 +10,7 @@ export default function CreateNewBoard({ handler }) {
       cursor="pointer"
       canHover={true}
       padding="0 1em"
+      justify="flex-start"
     >
       <LayoutIcon />
       <CreateNewTitle>Create New Board</CreateNewTitle>
