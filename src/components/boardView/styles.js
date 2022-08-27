@@ -37,6 +37,7 @@ export const AddColumnContainer = styled.div`
   justify-content: center;
   margin: 3.75em 1em 1em 1em;
   background-color: ${(props) => props.theme.colors.secondary};
+  box-shadow: ${(props) => props.theme.colors.shadow} 0px 6px 12px -2px;
 
   min-width: 320px;
   max-width: 320px;
