@@ -11,8 +11,13 @@ export const AppSideBarPane = styled.aside`
   border-right: 1px solid ${(props) => props.theme.colors.border};
 `;
 
-export const Title = styled.h2`
+export const SideBarTitle = styled.h2`
   margin-left: 0.5em;
+  /* Disable Text Select */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 `;
 
 export const BoardTitle = styled.p`
