@@ -76,6 +76,12 @@ export const ThemeSwitchPane = styled.div`
   border-radius: 8px;
   padding: 0.65rem;
   margin: 3em 1.5em;
+
+  /* Disable Text Select */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 `;
 export const ThemeIcon = styled.img`
   max-width: 18px;
