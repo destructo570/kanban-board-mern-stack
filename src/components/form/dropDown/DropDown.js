@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   Container,
   DropDownList,
@@ -8,10 +8,11 @@ import {
   Image,
 } from "./styles";
 import dropIcon from "../../../assets/icons/arrow-drop-down.svg";
+
 export default function DropDown({ dataSource, onItemClicked, shouldHide }) {
   const [value, setValue] = useState("Filter By Region");
   const [clickState, setClickState] = useState(false);
-
+  const containerRef = useRef(null);
   const onClickHandler = () => {
     setClickState((prev) => !prev);
   };
@@ -23,7 +24,7 @@ export default function DropDown({ dataSource, onItemClicked, shouldHide }) {
   };
 
   return (
-    <Container shouldHide={shouldHide}>
+    <Container shouldHide={shouldHide} ref={containerRef}>
       <Pane
         direction="row"
         justify="space-between"
