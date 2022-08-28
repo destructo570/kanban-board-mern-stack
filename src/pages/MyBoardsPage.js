@@ -4,7 +4,7 @@ import AppSideBarContainer from "../containers/AppSideBarContainer";
 import BoardViewContainer from "../containers/BoardViewContainer";
 import NavigationContainer from "../containers/NavigationContainer";
 
-export default function Home() {
+export default function MyBoards() {
   return (
     <Wrapper alignItems="flex-start">
       <AppSideBarContainer />

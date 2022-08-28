@@ -2,7 +2,7 @@ import styled from "@emotion/styled/macro";
 
 export const BoardViewPane = styled.section`
   display: flex;
-  width: 100%;
+  min-width: 100%;
   background-color: ${(props) => props.theme.colors.background};
 `;
 
