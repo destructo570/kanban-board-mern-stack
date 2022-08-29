@@ -9,11 +9,14 @@ export const Container = styled.div`
   width: ${({ width }) => (width ? width : "auto")};
   min-width: ${({ minWidth }) => (minWidth ? minWidth : "auto")};
   min-height: ${({ minHeight }) => (minHeight ? minHeight : "auto")};
+  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "auto")};
+  max-height: ${({ maxHeight }) => (maxHeight ? maxHeight : "auto")};
   justify-content: ${({ justify }) => (justify ? justify : "inherit")};
   align-items: ${({ alignItems }) => (alignItems ? alignItems : "inherit")};
   background-color: ${({ bgColor, theme }) =>
     bgColor ? bgColor : theme.colors.primary};
   cursor: ${({ cursor }) => (cursor ? cursor : "auto")};
+  border-radius: ${({ borderRadius }) => (borderRadius ? borderRadius : "0px")};
 
   /* Conditional Hover BG Color */
   ${(props) =>
