@@ -9,7 +9,12 @@ import {
 } from "./styles";
 import dropIcon from "../../../assets/icons/arrow-drop-down.svg";
 
-export default function DropDown({ dataSource, onItemClicked, shouldHide }) {
+export default function DropDown({
+  dataSource,
+  onItemClicked,
+  shouldHide,
+  width,
+}) {
   const [value, setValue] = useState("Filter By Region");
   const [clickState, setClickState] = useState(false);
   const containerRef = useRef(null);
@@ -24,7 +29,7 @@ export default function DropDown({ dataSource, onItemClicked, shouldHide }) {
   };
 
   return (
-    <Container shouldHide={shouldHide} ref={containerRef}>
+    <Container shouldHide={shouldHide} ref={containerRef} width={width}>
       <Pane
         direction="row"
         justify="space-between"

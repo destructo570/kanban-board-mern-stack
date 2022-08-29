@@ -4,12 +4,17 @@ export const Container = styled.div`
   cursor: pointer;
   min-width: 200px;
   color: ${(props) => props.theme.colors.textPrimary};
+  width: ${({ width }) => (width ? width : "auto")};
 
   /* Disable Text Select */
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
+
+  position: relative;
+  border: 1px solid ${(props) => props.theme.colors.border};
+  border-radius: 8px;
 `;
 export const Pane = styled.div`
   display: flex;
@@ -17,7 +22,7 @@ export const Pane = styled.div`
   background-color: ${(props) => props.theme.colors.primary};
   border-radius: 8px;
   justify-content: ${({ justify }) => justify};
-  position: relative;
+  /* position: relative; */
   padding: 0 1em;
 
   &:hover {
@@ -35,6 +40,7 @@ export const DropDownList = styled.ul`
   justify-content: ${({ justify }) => justify};
   position: absolute;
   min-width: 200px;
+  width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
