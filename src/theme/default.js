@@ -30,6 +30,7 @@ export const lighTheme = {
     background: "#F3F8FF",
     border: "rgba(0,0,0,0.1)",
     shadow: "rgba(50, 50, 93, 0.15)",
+    textHighlight: "#cfdb5e",
   },
   ...common,
 };
@@ -47,6 +48,7 @@ export const darkTheme = {
     background: "#282836",
     border: "rgba(250,250,250,0.1)",
     shadow: "rgba(0, 0, 0, 0.15)",
+    textHighlight: "#d9e854",
   },
   ...common,
 };

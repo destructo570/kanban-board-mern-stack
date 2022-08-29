@@ -1,12 +1,11 @@
 import React from "react";
-import Wrapper from "../common/Wrapper/Wrapper";
-import { ReactComponent as Logo } from "../../assets/icons/logo.svg";
-export default function Header() {
+
+import { HeaderPane } from "./styles";
+
+export default function Header({ children }) {
   return (
-    <Wrapper>
-      <Wrapper>
-        <Logo />
-      </Wrapper>
-    </Wrapper>
+    <HeaderPane direction="column" width="100%">
+      {children}
+    </HeaderPane>
   );
 }

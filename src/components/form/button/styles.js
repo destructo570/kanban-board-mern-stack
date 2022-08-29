@@ -4,15 +4,21 @@ export const StyledButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  max-width: 100px;
   font-family: "Open Sans", "sans-serif";
-  font-weigth: bold;
   outline: none;
   border: none;
-  border-radius: 6px;
-  padding: 0.5em 0;
-  background-color: ${(props) => props.theme.colors.secondary};
-  color: ${(props) => props.theme.colors.textPrimary};
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 8px;
+  padding: 1em 0;
+  font-weight: 700;
   margin: 1em 0;
   cursor: pointer;
+  width: ${({ width }) => (width ? width : "100%")};
+  color: ${(props) => props.theme.colors.textPrimary};
+  background-color: ${(props) => props.theme.colors.primaryAccent};
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.primaryAccentLight};
+  }
 `;
