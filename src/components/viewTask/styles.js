@@ -33,7 +33,11 @@ export const ViewTaskPane = styled.section`
   }
 `;
 
-export const TaskTitle = styled.h3``;
+export const TaskTitle = styled.h3`
+  padding: 1em 0 0.25em 0;
+  line-height: 1.5em;
+  margin: 0;
+`;
 
 export const TaskDescription = styled.p`
   color: ${(props) => [props.theme.colors.textSecondary]};

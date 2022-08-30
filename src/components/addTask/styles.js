@@ -14,7 +14,7 @@ export const AddTaskPane = styled.section`
   left: 0;
   right: 0;
   z-index: 200;
-
+  font-size: 0.9rem;
   animation-duration: 0.25s;
   animation-name: slidein1;
 
@@ -34,7 +34,10 @@ export const AddTaskPane = styled.section`
   }
 `;
 
-export const AddTaskTitle = styled.h3``;
+export const AddTaskTitle = styled.h3`
+  padding: 0;
+  margin: 0;
+`;
 
 export const TaskDescription = styled.p`
   color: ${(props) => [props.theme.colors.textSecondary]};
@@ -43,17 +46,14 @@ export const TaskDescription = styled.p`
   font-weight: 700;
 `;
 
-export const SubTaskTitle = styled.h4`
-  font-size: 0.9rem;
-`;
+export const SubTaskTitle = styled.h4``;
 
-export const StatusTitle = styled.h4`
-  font-size: 0.9rem;
-`;
+export const StatusTitle = styled.h4``;
 
 export const AddSubTaskListPane = styled.ul`
   list-style: none;
   padding: 0;
+  margin: 0;
   font-size: 0.8rem;
   width: 100%;
 `;
