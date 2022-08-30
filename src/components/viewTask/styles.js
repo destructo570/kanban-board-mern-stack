@@ -7,14 +7,25 @@ export const ViewTaskPane = styled.section`
   max-width: 720px;
   display: flex;
   align-items: center;
-  min-height: 80vh;
-  /* min-height: 100vh; */
+  height: fit-content;
   position: absolute;
-  top: 0;
+  top: 100px;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 200;
+  animation-duration: 0.25s;
+  animation-name: slidein2;
+
+  @keyframes slidein2 {
+    from {
+      top: 150px;
+    }
+
+    to {
+      top: 100px;
+    }
+  }
 
   @media (min-width: ${(props) => props.theme.media.medium}) {
     margin: 0 auto;
