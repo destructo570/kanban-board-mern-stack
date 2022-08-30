@@ -8,6 +8,25 @@ export const AddTaskPane = styled.section`
   display: flex;
   align-items: center;
   min-height: 80vh;
+  position: absolute;
+  top: 20px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+
+  animation-duration: 0.25s;
+  animation-name: slidein1;
+
+  @keyframes slidein1 {
+    from {
+      top: 80px;
+    }
+
+    to {
+      top: 20px;
+    }
+  }
 
   @media (min-width: ${(props) => props.theme.media.medium}) {
     margin: 1em auto;
