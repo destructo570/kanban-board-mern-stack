@@ -42,7 +42,7 @@ export default function SignInForm() {
         onChange={paswordChangeHandler}
         type="password"
       />
-      <Button title="Sign In" onClick={submitHandler} />
+      <Button title="Sign In" onClick={submitHandler} textStyle="uppercase" />
     </Wrapper>
   );
 }
