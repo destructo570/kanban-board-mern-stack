@@ -42,6 +42,7 @@ export const DropDownList = styled.ul`
   min-width: 200px;
   width: 100%;
   margin: 0;
+  margin-top: 0.5em;
   padding: 0;
   list-style: none;
 `;
