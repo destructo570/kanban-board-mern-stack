@@ -73,7 +73,7 @@ export default function SignUpForm() {
         onChange={paswordChangeHandler}
         type="password"
       />
-      <Button title="Sign Up" onClick={submitHandler} />
+      <Button title="Sign Up" onClick={submitHandler} textStyle="uppercase" />
     </Wrapper>
   );
 }
