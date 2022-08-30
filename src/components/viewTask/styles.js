@@ -8,6 +8,13 @@ export const ViewTaskPane = styled.section`
   display: flex;
   align-items: center;
   min-height: 80vh;
+  /* min-height: 100vh; */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
 
   @media (min-width: ${(props) => props.theme.media.medium}) {
     margin: 0 auto;

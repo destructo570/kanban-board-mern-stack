@@ -9,7 +9,7 @@ import Navigation from "../components/navigation/Navigation";
 const DUMMY_BOARDS = ["Platform Launch", "Marketing Plan", "Roadmap"];
 export default function NavigationContainer() {
   const onBoardClickedHandler = () => {};
-  const createNewBoardHandler = () => {};
+  const addNewTaskHandler = () => {};
   return (
     <Navigation>
       <Logo />
@@ -23,7 +23,7 @@ export default function NavigationContainer() {
           <ActionButton
             title="Add new task"
             icon={addIcon}
-            handler={createNewBoardHandler}
+            handler={addNewTaskHandler}
           />
         </Wrapper>
       </Wrapper>
