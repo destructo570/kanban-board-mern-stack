@@ -1,10 +1,20 @@
 import React from "react";
-import { InputWrapper, InputError, Input } from "./styles";
+import { InputWrapper, InputLabel, InputError, Input } from "./styles";
 
 export default function FormInput(props) {
-  const { placeholder, onChange, value, hasError, errorMessage, type } = props;
+  const {
+    label,
+    placeholder,
+    onChange,
+    value,
+    hasError,
+    errorMessage,
+    type,
+    width,
+  } = props;
   return (
-    <InputWrapper margin={props.margin}>
+    <InputWrapper margin={props.margin} width={width}>
+      {label && <InputLabel>{label}</InputLabel>}
       <Input
         type={type}
         placeholder={placeholder}
