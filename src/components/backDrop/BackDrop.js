@@ -10,6 +10,18 @@ const BackDropPane = styled.div`
   left: 0;
   right: 0;
   z-index: 100;
+  animation-duration: 0.25s;
+  animation-name: fadein;
+
+  @keyframes fadein {
+    from {
+      opacity: 0.4;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 export default function BackDrop({ children, onClick }) {
