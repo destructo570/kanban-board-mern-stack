@@ -2,7 +2,7 @@ import styled from "@emotion/styled/macro";
 
 export const ViewTaskPane = styled.section`
   border-radius: 8px;
-  color: ${(props) => [props.theme.colors.textPrimary]};
+
   margin: 1em;
   max-width: 720px;
   display: flex;
@@ -17,6 +17,7 @@ export const ViewTaskPane = styled.section`
   animation-duration: 0.25s;
   animation-name: slidein2;
 
+  color: ${(props) => [props.theme.colors.textPrimary]};
   @keyframes slidein2 {
     from {
       top: 150px;

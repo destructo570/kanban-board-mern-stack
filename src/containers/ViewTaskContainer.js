@@ -39,6 +39,7 @@ export default function ViewTaskContainer({ task, onClose, statusList }) {
             justify="flex-start"
             padding="1.75em"
             borderRadius="8px"
+            width="100%"
           >
             <TaskTitle>{task.title}</TaskTitle>
             <TaskDescription>{task.description}</TaskDescription>
