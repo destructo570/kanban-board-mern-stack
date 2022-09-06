@@ -13,7 +13,7 @@ export const ViewTaskPane = styled.section`
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 200;
+  z-index: 500;
   animation-duration: 0.25s;
   animation-name: slidein2;
 

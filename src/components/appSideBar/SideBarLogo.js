@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/icons/logo.svg";
+import { ReactComponent as Logo } from "../../assets/icons/logo.svg";
 import Wrapper from "../common/Wrapper/Wrapper";
 import { SideBarLogoTitle } from "./styles";
 
@@ -9,10 +9,11 @@ export default function SideBarLogo({ children }) {
     <Wrapper
       padding="0 1em"
       justify="flex-start"
+      alignItems="center"
       cursor="pointer"
       onClick={clickHandler}
     >
-      <img src={logo} alt="logo" />
+      <Logo />
       <SideBarLogoTitle>Kanban</SideBarLogoTitle>
     </Wrapper>
   );

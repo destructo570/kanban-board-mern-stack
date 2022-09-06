@@ -17,7 +17,11 @@ export const Container = styled.div`
   border-radius: 8px;
 
   @media (min-width: ${(props) => props.theme.media.medium}) {
+    ${(props) =>
+      props.borderBg &&
+      `
     display: none;
+  `}
   }
 `;
 export const Pane = styled.div`

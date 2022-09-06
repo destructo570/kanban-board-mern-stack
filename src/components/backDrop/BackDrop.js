@@ -9,7 +9,7 @@ const BackDropPane = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 400;
   animation-duration: 0.25s;
   animation-name: fadein;
 
