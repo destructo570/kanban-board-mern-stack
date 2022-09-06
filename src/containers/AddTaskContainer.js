@@ -12,7 +12,7 @@ import AddSubTaskList from "../components/addTask/AddSubTaskList";
 import FormInput from "../components/form/input/FormInput";
 import Button from "../components/form/button/Button";
 import FormTextArea from "../components/form/textArea/FormTextArea";
-import BackDrop from "../components/backDrop/BackDrop";
+import BackDrop from "../components/common/backDrop/BackDrop";
 
 export default function AddTaskContainer({ onClose }) {
   const [subTaskList, setSubTaskList] = useState([""]);

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { useSelector } from "react-redux";
-import BackDrop from "../components/backDrop/BackDrop";
+import BackDrop from "../components/common/backDrop/BackDrop";
 import Wrapper from "../components/common/Wrapper/Wrapper";
 import DropDown from "../components/form/dropDown/DropDown";
 import {

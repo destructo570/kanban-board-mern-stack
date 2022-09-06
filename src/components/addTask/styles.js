@@ -8,12 +8,12 @@ export const AddTaskPane = styled.section`
   display: flex;
   align-items: center;
   min-height: 80vh;
-  position: absolute;
+  position: fixed;
   top: 20px;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 200;
+  z-index: 500;
   font-size: 0.9rem;
   animation-duration: 0.25s;
   animation-name: slidein1;

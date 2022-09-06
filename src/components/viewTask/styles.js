@@ -8,7 +8,7 @@ export const ViewTaskPane = styled.section`
   display: flex;
   align-items: center;
   height: fit-content;
-  position: absolute;
+  position: fixed;
   top: 100px;
   bottom: 0;
   left: 0;
