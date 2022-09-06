@@ -2,8 +2,12 @@ import styled from "@emotion/styled/macro";
 
 export const BoardViewPane = styled.section`
   display: flex;
-  min-width: 100%;
+  padding-top: 4em;
+
   background-color: ${(props) => props.theme.colors.background};
+  @media (min-width: ${(props) => props.theme.media.medium}) {
+    padding-left: 250px;
+  }
 `;
 
 export const StatusColumnsList = styled.ul`

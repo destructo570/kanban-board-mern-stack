@@ -15,6 +15,10 @@ export const Container = styled.div`
   position: relative;
   border: 1px solid ${(props) => props.theme.colors.border};
   border-radius: 8px;
+
+  @media (min-width: ${(props) => props.theme.media.medium}) {
+    display: none;
+  }
 `;
 export const Pane = styled.div`
   display: flex;
@@ -22,7 +26,6 @@ export const Pane = styled.div`
   background-color: ${(props) => props.theme.colors.primary};
   border-radius: 8px;
   justify-content: ${({ justify }) => justify};
-  /* position: relative; */
   padding: 0 1em;
 
   &:hover {

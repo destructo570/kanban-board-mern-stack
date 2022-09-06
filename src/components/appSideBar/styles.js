@@ -1,14 +1,20 @@
 import styled from "@emotion/styled/macro";
 
 export const AppSideBarPane = styled.aside`
-  display: flex;
+  display: none;
   flex-direction: column;
   width: fit-content;
   min-height: 100vh;
   height: 100%;
-  min-width: 250px;
+  width: 250px;
   justify-content: space-between;
+  position: fixed;
+  z-index: 300;
+  background-color: ${(props) => props.theme.colors.primary};
   border-right: 1px solid ${(props) => props.theme.colors.border};
+  @media (min-width: ${(props) => props.theme.media.medium}) {
+    display: flex;
+  }
 `;
 
 export const SideBarLogoTitle = styled.h2`

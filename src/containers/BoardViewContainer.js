@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import AddNewColumn from "../components/boardView/AddNewColumn";
 import BoardView from "../components/boardView/BoardView";
 import StatusColumns from "../components/boardView/StatusColumns";
-import boardData from "../fixtures/board.json";
-import { boardActions } from "../store/board-slice";
+import Wrapper from "../components/common/Wrapper/Wrapper";
 import ViewTaskContainer from "./ViewTaskContainer";
 
 export default function BoardViewContainer() {
@@ -16,22 +15,21 @@ export default function BoardViewContainer() {
     setShowTask((prev) => !prev);
   };
 
-  // useEffect(()=>{
-
-  // }, [currentTask])
-
   const toggleShowTask = () => {
     setShowTask((prev) => !prev);
   };
   return (
     <>
-      <BoardView>
-        <StatusColumns
-          dataSource={activeBoard}
-          onTaskClick={taskItemClickHandler}
-        />
-        <AddNewColumn />
-      </BoardView>
+      <Wrapper>
+        <BoardView>
+          <StatusColumns
+            dataSource={activeBoard}
+            onTaskClick={taskItemClickHandler}
+          />
+          <AddNewColumn />
+        </BoardView>
+      </Wrapper>
+
       {showTask && (
         <ViewTaskContainer
           task={currentTask}

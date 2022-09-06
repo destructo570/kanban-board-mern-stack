@@ -7,7 +7,7 @@ import NavigationContainer from "../containers/NavigationContainer";
 export default function MyBoardsPage({ setIsDark }) {
   return (
     <>
-      <Wrapper alignItems="flex-start">
+      <Wrapper width="100%">
         <AppSideBarContainer setIsDark={setIsDark} />
         <Wrapper width="100%" direction="column">
           <NavigationContainer />

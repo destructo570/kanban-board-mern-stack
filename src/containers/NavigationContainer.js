@@ -29,20 +29,25 @@ export default function NavigationContainer() {
     <>
       <Navigation>
         <Logo />
-        <Wrapper width="100%" justify="space-between" margin="0 0 0 1em">
+        <Wrapper
+          width="100%"
+          justify="space-between"
+          alignItems="center"
+          margin="0 0 0 1em"
+          minHeight="3rem"
+        >
           <DropDown
             dataSource={boardList}
             onItemClicked={onBoardClickedHandler}
             shouldHide={true}
             initialValue={activeBoard?.title}
           />
-          <Wrapper>
-            <ActionButton
-              title="Add new task"
-              icon={addIcon}
-              handler={toggleAddTaskModal}
-            />
-          </Wrapper>
+
+          <ActionButton
+            title="Add new task"
+            icon={addIcon}
+            handler={toggleAddTaskModal}
+          />
         </Wrapper>
       </Navigation>
       {showAddTaskModal && <AddTaskContainer onClose={toggleAddTaskModal} />}
