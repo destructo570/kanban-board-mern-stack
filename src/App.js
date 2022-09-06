@@ -3,6 +3,7 @@ import MyBoardsPage from "./pages/MyBoardsPage";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { boardActions } from "./store/board-slice";
+import Wrapper from "./components/common/Wrapper/Wrapper";
 
 function App({ setIsDark }) {
   const dispatch = useDispatch();
@@ -19,9 +20,9 @@ function App({ setIsDark }) {
       .catch((err) => console.log(err));
   }, [dispatch]);
   return (
-    <div>
+    <Wrapper>
       <MyBoardsPage setIsDark={setIsDark} />
-    </div>
+    </Wrapper>
   );
 }
 

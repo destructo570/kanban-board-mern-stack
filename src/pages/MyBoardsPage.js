@@ -9,7 +9,7 @@ export default function MyBoardsPage({ setIsDark }) {
     <>
       <Wrapper width="100%">
         <AppSideBarContainer setIsDark={setIsDark} />
-        <Wrapper width="100%" direction="column">
+        <Wrapper width="100%" direction="column" minHeight="1080px">
           <NavigationContainer />
           <BoardViewContainer />
         </Wrapper>

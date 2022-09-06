@@ -4,6 +4,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: ${({ direction }) => (direction ? direction : "row")};
   position: ${({ position }) => (position ? position : "relative")};
+  top: ${({ top }) => (top ? top : "0px")};
+  bottom: ${({ bottom }) => (bottom ? bottom : "0px")};
+  left: ${({ left }) => (left ? left : "0px")};
+  right: ${({ right }) => (right ? right : "0px")};
   margin: ${({ margin }) => (margin ? margin : "0px")};
   padding: ${({ padding }) => (padding ? padding : "0px")};
   height: ${({ height }) => (height ? height : "auto")};

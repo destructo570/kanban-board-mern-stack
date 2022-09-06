@@ -6,7 +6,9 @@ const globalStyles = css`
     box-sizing: border-box;
   }
   html,
-  body {
+  body,
+  section,
+  div {
     font-family: "Open Sans", "Sans-serif";
     transition-duration: 0.2s;
     transition-property: background-color, color;

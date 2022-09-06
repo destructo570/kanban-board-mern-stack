@@ -5,11 +5,14 @@ import BoardView from "../components/boardView/BoardView";
 import StatusColumns from "../components/boardView/StatusColumns";
 import Wrapper from "../components/common/Wrapper/Wrapper";
 import ViewTaskContainer from "./ViewTaskContainer";
+import { getUserThemePref } from "../helpers/helpers";
 
 export default function BoardViewContainer() {
   const activeBoard = useSelector((state) => state.board.activeBoard);
   const [showTask, setShowTask] = useState(false);
   const [currentTask, setCurrentTask] = useState(null);
+  const isDark = getUserThemePref();
+
   const taskItemClickHandler = (task) => {
     setCurrentTask(task);
     setShowTask((prev) => !prev);
@@ -20,7 +23,7 @@ export default function BoardViewContainer() {
   };
   return (
     <>
-      <Wrapper>
+      <Wrapper bgColor={isDark ? "#282836" : "#F3F8FF"} minHeight="100%">
         <BoardView>
           <StatusColumns
             dataSource={activeBoard}
