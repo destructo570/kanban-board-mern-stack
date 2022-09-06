@@ -1,11 +1,14 @@
 import React from "react";
 import { BoardListItem, BoardListItemName } from "./styles";
-import { ReactComponent as BoardListItemIcon } from "../../assets/icons/layout.svg";
+import { ReactComponent as IconLight } from "../../assets/icons/layout-light.svg";
+import { ReactComponent as IconDark } from "../../assets/icons/layout-dark.svg";
+import { getUserThemePref } from "../../helpers/helpers";
 
 export default function BoardItem({ name, ...rest }) {
+  const isDark = getUserThemePref();
   return (
     <BoardListItem {...rest}>
-      <BoardListItemIcon />
+      {isDark ? <IconLight /> : <IconDark />}
       <BoardListItemName>{name}</BoardListItemName>
     </BoardListItem>
   );
