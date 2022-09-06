@@ -6,12 +6,24 @@ import DropDown from "../components/form/dropDown/DropDown";
 import ActionButton from "../components/navigation/ActionButton";
 import Navigation from "../components/navigation/Navigation";
 import AddTaskContainer from "./AddTaskContainer";
+import { boardActions } from "../store/board-slice";
+import { useDispatch, useSelector } from "react-redux";
 
-const DUMMY_BOARDS = ["Platform Launch", "Marketing Plan", "Roadmap"];
 export default function NavigationContainer() {
+  const activeBoard = useSelector((state) => state.board.activeBoard);
+  const allBoards = useSelector((state) => state.board.allBoards);
+  const dispatch = useDispatch();
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
-  const onBoardClickedHandler = () => {};
+
+  const onBoardClickedHandler = (boardTitle) => {
+    const board = allBoards.find((board) => board.title === boardTitle);
+    dispatch(boardActions.changeActiveBoard(board._id));
+  };
+
   const toggleAddTaskModal = () => setShowAddTaskModal((prev) => !prev);
+
+  let boardList = [];
+  if (allBoards) boardList = allBoards.map((board) => board.title);
 
   return (
     <>
@@ -19,9 +31,10 @@ export default function NavigationContainer() {
         <Logo />
         <Wrapper width="100%" justify="space-between" margin="0 0 0 1em">
           <DropDown
-            dataSource={DUMMY_BOARDS}
+            dataSource={boardList}
             onItemClicked={onBoardClickedHandler}
             shouldHide={true}
+            initialValue={activeBoard?.title}
           />
           <Wrapper>
             <ActionButton

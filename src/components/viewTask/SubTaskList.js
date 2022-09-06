@@ -20,7 +20,7 @@ export default function SubTaskList({ dataSource }) {
       {subTaskList.map((item) => {
         return (
           <SubTaskListItem
-            key={item.id}
+            key={item._id}
             onClick={subTaskClickHandler.bind(null, item.id)}
           >
             <Checkbox state={item.isComplete} />

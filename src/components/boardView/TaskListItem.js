@@ -5,10 +5,20 @@ import CardTitle from "../common/Card/CardTitle";
 import {} from "./styles";
 
 export default function TaskListItem({ dataSource, onTaskClick }) {
+  const numOfSubTasks = dataSource.sub_tasks.length;
+  let numOfCompletedSubTask = 0;
+
+  dataSource.sub_tasks.forEach((subtask) => {
+    if (subtask.isCompleted) numOfCompletedSubTask++;
+  });
+
+  const onClickHandler = () => {
+    onTaskClick(dataSource);
+  };
   return (
-    <Card width="320px" onClick={onTaskClick.bind(null, dataSource)}>
+    <Card width="320px" onClick={onClickHandler}>
       <CardTitle>{dataSource.title}</CardTitle>
-      <CardSubTitle>0 of 3 subtasks</CardSubTitle>
+      <CardSubTitle>{`${numOfCompletedSubTask} of ${numOfSubTasks} subtasks`}</CardSubTitle>
     </Card>
   );
 }

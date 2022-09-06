@@ -1,24 +1,20 @@
 import { Global, ThemeProvider } from "@emotion/react";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
 import App from "./App";
-import { lighTheme, darkTheme } from "./theme/default";
+import { darkTheme } from "./theme/default";
 import globalStyles from "./theme/global";
+import store from "./store/index";
 
 const Root = () => {
-  const [isDark, setIsDark] = useState(false);
-
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     setIsDark((prev) => !prev);
-  //   }, 1000);
-  // }, []);
-
   return (
     <>
       <ThemeProvider theme={darkTheme}>
         <Global styles={globalStyles} />
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </ThemeProvider>
     </>
   );

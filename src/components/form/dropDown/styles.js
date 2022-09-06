@@ -30,6 +30,7 @@ export const Pane = styled.div`
   }
 `;
 export const CurrentItem = styled.p`
+  text-transform: capitalize;
   font-weight: 700;
 `;
 export const DropDownList = styled.ul`
@@ -48,7 +49,7 @@ export const DropDownList = styled.ul`
 `;
 export const DropDownItem = styled.li`
   padding: 1em;
-
+  text-transform: capitalize;
   &:hover {
     background-color: ${(props) => props.theme.colors.secondaryLight};
   }

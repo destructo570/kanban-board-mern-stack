@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Container,
   DropDownList,
@@ -14,13 +14,18 @@ export default function DropDown({
   onItemClicked,
   shouldHide,
   width,
+  initialValue,
 }) {
-  const [value, setValue] = useState("Filter By Region");
+  const [value, setValue] = useState();
   const [clickState, setClickState] = useState(false);
   const containerRef = useRef(null);
   const onClickHandler = () => {
     setClickState((prev) => !prev);
   };
+
+  useEffect(() => {
+    setValue(initialValue ? initialValue : dataSource[0]);
+  }, [dataSource, initialValue]);
 
   const onItemClickHandler = (e) => {
     setValue(e.target.innerText);

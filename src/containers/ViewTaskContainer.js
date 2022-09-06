@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { useSelector } from "react-redux";
 import BackDrop from "../components/backDrop/BackDrop";
 import Wrapper from "../components/common/Wrapper/Wrapper";
 import DropDown from "../components/form/dropDown/DropDown";
@@ -10,29 +11,20 @@ import {
   SubTaskTitle,
   StatusTitle,
 } from "../components/viewTask/styles";
+
 import SubTaskList from "../components/viewTask/SubTaskList";
 
-const subTasks = [
-  {
-    id: 1,
-    body: "Research competitor pricing and buisiness models",
-    isComplete: true,
-  },
-  {
-    id: 2,
-    body: "Outline a buisiness model that works for our solution",
-    isComplete: true,
-  },
-  {
-    id: 3,
-    body: "Talk to potential customers about our proposed solution and ask for fair price expectancy",
-    isComplete: false,
-  },
-];
-
-export default function ViewTaskContainer({ onClose }) {
+export default function ViewTaskContainer({ task, onClose, statusList }) {
   const statusChangeHandler = () => {};
   const subTaskClickHandler = () => {};
+
+  const numOfSubTasks = task.sub_tasks.length;
+  let numOfCompletedSubTask = 0;
+
+  task.sub_tasks.forEach((subtask) => {
+    if (subtask.isCompleted) numOfCompletedSubTask++;
+  });
+
   return (
     <>
       {ReactDOM.createPortal(
@@ -48,22 +40,18 @@ export default function ViewTaskContainer({ onClose }) {
             padding="1.75em"
             borderRadius="8px"
           >
-            <TaskTitle>
-              Research pricing points of various competitors and trial
-              difference buisiness models
-            </TaskTitle>
-            <TaskDescription>
-              loreLorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-              finibus tempor augue, vel finibus dolor aliquet nec. Lorem ipsum
-              dolor sit amet, consectetur adipiscing elit. Curabitur ante mi,
-              consequat in nunc id,50
-            </TaskDescription>
-            <SubTaskTitle>Subtasks (2 of 3)</SubTaskTitle>
-            <SubTaskList dataSource={subTasks} onClick={subTaskClickHandler} />
+            <TaskTitle>{task.title}</TaskTitle>
+            <TaskDescription>{task.description}</TaskDescription>
+            <SubTaskTitle>{`Subtasks (${numOfCompletedSubTask} of ${numOfSubTasks})`}</SubTaskTitle>
+            <SubTaskList
+              dataSource={task.sub_tasks}
+              onClick={subTaskClickHandler}
+            />
             <StatusTitle>Status</StatusTitle>
             <DropDown
-              dataSource={["todo", "doing", "done"]}
+              dataSource={statusList}
               onItemClicked={statusChangeHandler}
+              initialValue={task.status}
               width="100%"
             />
           </Wrapper>

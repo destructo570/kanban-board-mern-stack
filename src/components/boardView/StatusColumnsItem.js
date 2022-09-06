@@ -5,12 +5,12 @@ import TaskListItem from "./TaskListItem";
 export default function StatusColumnsItem({ dataSource, onTaskClick }) {
   return (
     <StatusColumnsListItem>
-      <StatusTitle>{dataSource?.status}</StatusTitle>
+      <StatusTitle>{dataSource.status}</StatusTitle>
       <TaskList>
-        {dataSource["tasks-list"].map((item, index) => {
+        {dataSource.tasks.map((item, index) => {
           return (
             <TaskListItem
-              key={index}
+              key={item._id}
               dataSource={item}
               onTaskClick={onTaskClick}
             />
