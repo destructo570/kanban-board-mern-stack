@@ -8,11 +8,14 @@ import ThemeSwitch from "../components/appSideBar/ThemeSwitch";
 import Wrapper from "../components/common/Wrapper/Wrapper";
 import { boardActions } from "../store/board-slice";
 
-export default function AppSideBarContainer() {
+export default function AppSideBarContainer({ setIsDark }) {
   const allBoards = useSelector((state) => state.board.allBoards);
   const dispatch = useDispatch();
   const changeActiveBoardHandler = (boardId) => {
     dispatch(boardActions.changeActiveBoard(boardId));
+  };
+  const themeHandler = () => {
+    setIsDark((prev) => !prev);
   };
 
   const createNewBoardHandler = () => {};
@@ -27,7 +30,7 @@ export default function AppSideBarContainer() {
         <CreateNewBoard handler={createNewBoardHandler} />
       </Wrapper>
       <Wrapper width="100%">
-        <ThemeSwitch />
+        <ThemeSwitch onThemeChange={themeHandler} />
       </Wrapper>
     </AppSideBar>
   );
