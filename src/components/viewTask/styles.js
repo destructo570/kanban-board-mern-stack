@@ -59,6 +59,7 @@ export const SubTaskListPane = styled.ul`
   list-style: none;
   padding: 0;
   font-size: 0.8rem;
+  width: 100%;
 `;
 
 export const SubTaskListItem = styled.li`
@@ -67,7 +68,6 @@ export const SubTaskListItem = styled.li`
   border-radius: 8px;
   display: flex;
   align-items: center;
-
   & + & {
     margin-top: 0.5em;
   }
