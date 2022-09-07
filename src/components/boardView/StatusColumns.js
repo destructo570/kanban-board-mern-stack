@@ -7,7 +7,7 @@ export default function StatusColumns({ dataSource, onTaskClick }) {
   let content = null;
 
   if (dataSource) {
-    content = dataSource?.tasks.map((item, index) => {
+    content = dataSource?.lists.map((item, index) => {
       return (
         <StatusColumnsItem
           key={item._id}

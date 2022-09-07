@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AllBoards from "../components/appSideBar/AllBoards";
@@ -6,13 +7,13 @@ import CreateNewBoard from "../components/appSideBar/CreateNewBoard";
 import SideBarLogo from "../components/appSideBar/SideBarLogo";
 import ThemeSwitch from "../components/appSideBar/ThemeSwitch";
 import Wrapper from "../components/common/Wrapper/Wrapper";
-import { boardActions } from "../store/board-slice";
+import { fetchActiveBoard } from "../store/board-slice";
 
 export default function AppSideBarContainer({ setIsDark }) {
   const allBoards = useSelector((state) => state.board.allBoards);
   const dispatch = useDispatch();
   const changeActiveBoardHandler = (boardId) => {
-    dispatch(boardActions.changeActiveBoard(boardId));
+    dispatch(fetchActiveBoard(boardId));
   };
   const themeHandler = () => {
     setIsDark((prev) => !prev);

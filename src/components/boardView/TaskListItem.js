@@ -5,10 +5,10 @@ import CardTitle from "../common/Card/CardTitle";
 import {} from "./styles";
 
 export default function TaskListItem({ dataSource, onTaskClick }) {
-  const numOfSubTasks = dataSource.sub_tasks.length;
+  const numOfSubTasks = dataSource.checkList.length;
   let numOfCompletedSubTask = 0;
 
-  dataSource.sub_tasks.forEach((subtask) => {
+  dataSource.checkList.forEach((subtask) => {
     if (subtask.isCompleted) numOfCompletedSubTask++;
   });
 

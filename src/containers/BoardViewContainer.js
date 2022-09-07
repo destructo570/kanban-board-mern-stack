@@ -13,6 +13,8 @@ export default function BoardViewContainer() {
   const [currentTask, setCurrentTask] = useState(null);
   const isDark = getUserThemePref();
 
+  const statusList = activeBoard?.lists.map((list) => list.title);
+
   const taskItemClickHandler = (task) => {
     setCurrentTask(task);
     setShowTask((prev) => !prev);
@@ -37,7 +39,7 @@ export default function BoardViewContainer() {
         <ViewTaskContainer
           task={currentTask}
           onClose={toggleShowTask}
-          statusList={activeBoard?.status_list}
+          statusList={statusList}
         />
       )}
     </>

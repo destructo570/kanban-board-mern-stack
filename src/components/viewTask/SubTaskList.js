@@ -1,30 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import Checkbox from "../form/checkbox/Checkbox";
 import { SubTaskListPane, SubTaskListItem, SubTaskBody } from "./styles";
 
-export default function SubTaskList({ dataSource }) {
-  const [subTaskList, setSubTaskList] = useState(dataSource);
-
-  const subTaskClickHandler = (id) => {
-    setSubTaskList((prev) => {
-      const newState = [...prev];
-      prev.forEach((item) => {
-        if (item.id === id) item.isComplete = !item.isComplete;
-      });
-      return newState;
-    });
-  };
-
+export default function SubTaskList({ dataSource, onSubTaskClick }) {
   return (
     <SubTaskListPane>
-      {subTaskList.map((item) => {
+      {dataSource.map((item) => {
         return (
           <SubTaskListItem
             key={item._id}
-            onClick={subTaskClickHandler.bind(null, item.id)}
+            onClick={onSubTaskClick.bind(null, item._id)}
           >
-            <Checkbox state={item.isComplete} />
-            <SubTaskBody state={item.isComplete}>{item.body}</SubTaskBody>
+            <Checkbox state={item.isCompleted} />
+            <SubTaskBody state={item.isCompleted}>{item.body}</SubTaskBody>
           </SubTaskListItem>
         );
       })}

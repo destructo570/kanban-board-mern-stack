@@ -5,9 +5,9 @@ import TaskListItem from "./TaskListItem";
 export default function StatusColumnsItem({ dataSource, onTaskClick }) {
   return (
     <StatusColumnsListItem>
-      <StatusTitle>{dataSource.status}</StatusTitle>
+      <StatusTitle>{dataSource.title}</StatusTitle>
       <TaskList>
-        {dataSource.tasks.map((item, index) => {
+        {dataSource.cards.map((item, index) => {
           return (
             <TaskListItem
               key={item._id}
