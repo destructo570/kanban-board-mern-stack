@@ -14,7 +14,8 @@ import Button from "../components/form/button/Button";
 import FormTextArea from "../components/form/textArea/FormTextArea";
 import BackDrop from "../components/common/backDrop/BackDrop";
 import { useDispatch, useSelector } from "react-redux";
-import { createNewCard } from "../store/board-slice";
+import { fetchActiveBoard } from "../store/board-slice";
+import { createNewCard } from "../api/boardApi";
 
 export default function AddTaskContainer({ onClose }) {
   const activeBoard = useSelector((state) => state.board.activeBoard);
@@ -22,15 +23,13 @@ export default function AddTaskContainer({ onClose }) {
   const [subTaskList, setSubTaskList] = useState([""]);
   const [descInput, setDescInput] = useState("");
   const [statusInput, setStatusInput] = useState("");
+
   const dispatch = useDispatch();
-  const statusChangeHandler = (status) => {
-    setStatusInput(status);
-  };
+  const statusChangeHandler = (status) => setStatusInput(status);
   const titleChangeHandler = (e) => setTitleInput(e.target.value);
   const descChangeHandler = (e) => setDescInput(e.target.value);
 
   const createTaskHandler = () => {
-    console.log(activeBoard);
     const list = activeBoard.lists.find(
       (item) => item.title.toLowerCase() === statusInput.toLowerCase()
     );
@@ -45,7 +44,7 @@ export default function AddTaskContainer({ onClose }) {
       })),
     };
 
-    dispatch(createNewCard(payload));
+    createNewCard(payload, () => dispatch(fetchActiveBoard(payload.boardId)));
     onClose();
   };
   return (

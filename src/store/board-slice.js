@@ -79,24 +79,6 @@ export const fetchActiveBoard = (boardId) => {
   };
 };
 
-export const createNewCard = (cardData) => {
-  console.log(cardData);
-  return async (dispatch) => {
-    const createCard = async () => {
-      const HOST_URL = process.env.REACT_APP_HOST_URL;
-      const URL = HOST_URL + "card";
-      return await axios.post(URL, cardData);
-    };
-
-    try {
-      await createCard();
-      dispatch(fetchActiveBoard(cardData.boardId));
-    } catch (err) {
-      console.log(err);
-    }
-  };
-};
-
 export const fetchAllBoards = () => {
   return async (dispatch) => {
     const getBoards = async () => {
