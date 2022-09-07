@@ -6,8 +6,8 @@ import DropDown from "../components/form/dropDown/DropDown";
 import ActionButton from "../components/navigation/ActionButton";
 import Navigation from "../components/navigation/Navigation";
 import AddTaskContainer from "./AddTaskContainer";
-import { boardActions } from "../store/board-slice";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchActiveBoard } from "../store/board-actions";
 
 export default function NavigationContainer() {
   const activeBoard = useSelector((state) => state.board.activeBoard);
@@ -15,15 +15,16 @@ export default function NavigationContainer() {
   const dispatch = useDispatch();
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
 
-  const onBoardClickedHandler = (boardTitle) => {
-    const board = allBoards.find((board) => board.title === boardTitle);
-    dispatch(boardActions.changeActiveBoard(board._id));
+  let boardsDropdownList = allBoards?.map((item) => ({
+    id: item._id,
+    value: item.title,
+  }));
+
+  const onBoardClickedHandler = (board) => {
+    dispatch(fetchActiveBoard(board.id));
   };
 
   const toggleAddTaskModal = () => setShowAddTaskModal((prev) => !prev);
-
-  let boardList = [];
-  if (allBoards) boardList = allBoards.map((board) => board.title);
 
   return (
     <>
@@ -37,7 +38,7 @@ export default function NavigationContainer() {
           minHeight="3rem"
         >
           <DropDown
-            dataSource={boardList}
+            dataSource={boardsDropdownList}
             onItemClicked={onBoardClickedHandler}
             shouldHide={true}
             initialValue={activeBoard?.title}

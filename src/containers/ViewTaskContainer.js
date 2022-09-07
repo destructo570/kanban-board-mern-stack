@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import BackDrop from "../components/common/backDrop/BackDrop";
@@ -15,29 +15,26 @@ import {
 } from "../components/viewTask/styles";
 
 import SubTaskList from "../components/viewTask/SubTaskList";
-import { boardActions, updateCardData } from "../store/board-slice";
+import { updateCardData } from "../store/board-actions";
 
 export default function ViewTaskContainer({ task, onClose, statusList }) {
-  const activeBoard = useSelector((state) => state.board.activeBoard);
-  const [status, setStatus] = useState("");
+  const activeBoardList = useSelector((state) => state.board.activeBoardList);
+  const [status, setStatus] = useState(null);
   const [subTasks, setSubTasks] = useState(task.checkList);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const list = activeBoard.lists.find((list) => list._id === task.listId);
-    setStatus(list.title);
-  }, [activeBoard.lists, task.listId]);
+    const list = activeBoardList.find((list) => list.id === task.listId);
+    setStatus(list);
+  }, [activeBoardList, task.listId]);
 
   const statusChangeHandler = (status) => {
     setStatus(status);
   };
 
   const taskUpdateHandler = () => {
-    const list = activeBoard.lists.find(
-      (list) => list.title.toLowerCase() === status.toLowerCase()
-    );
     const payload = {
-      card: { ...task, checkList: subTasks, listId: list._id },
+      card: { ...task, checkList: subTasks, listId: status.id },
     };
 
     dispatch(updateCardData(payload));
@@ -86,9 +83,9 @@ export default function ViewTaskContainer({ task, onClose, statusList }) {
             />
             <StatusTitle>Status</StatusTitle>
             <DropDown
-              dataSource={statusList}
+              dataSource={activeBoardList}
               onItemClicked={statusChangeHandler}
-              initialValue={status}
+              initialValue={status?.value}
               width="100%"
             />
             <Button title="Update" onClick={taskUpdateHandler} />

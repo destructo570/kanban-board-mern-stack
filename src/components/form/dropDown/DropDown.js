@@ -24,12 +24,12 @@ export default function DropDown({
   };
 
   useEffect(() => {
-    setValue(initialValue ? initialValue : dataSource[0]);
+    setValue(initialValue ? initialValue : dataSource[0]?.value);
   }, [dataSource, initialValue]);
 
-  const onItemClickHandler = (e) => {
-    setValue(e.target.innerText);
-    onItemClicked(e.target.innerText);
+  const onItemClickHandler = (item) => {
+    setValue(item.value);
+    onItemClicked(item);
     setClickState((prev) => !prev);
   };
 
@@ -48,8 +48,11 @@ export default function DropDown({
         <DropDownList>
           {dataSource.map((item) => {
             return (
-              <DropDownItem key={item} onClick={onItemClickHandler}>
-                {item}
+              <DropDownItem
+                key={item.id}
+                onClick={onItemClickHandler.bind(null, item)}
+              >
+                {item.value}
               </DropDownItem>
             );
           })}

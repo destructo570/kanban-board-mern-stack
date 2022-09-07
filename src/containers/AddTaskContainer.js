@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import Wrapper from "../components/common/Wrapper/Wrapper";
 import DropDown from "../components/form/dropDown/DropDown";
@@ -14,28 +14,25 @@ import Button from "../components/form/button/Button";
 import FormTextArea from "../components/form/textArea/FormTextArea";
 import BackDrop from "../components/common/backDrop/BackDrop";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchActiveBoard } from "../store/board-slice";
-import { createNewCard } from "../api/boardApi";
+import { createNewCard } from "../store/board-actions";
 
 export default function AddTaskContainer({ onClose }) {
   const activeBoard = useSelector((state) => state.board.activeBoard);
+  const activeBoardList = useSelector((state) => state.board.activeBoardList);
   const [titleInput, setTitleInput] = useState("");
   const [subTaskList, setSubTaskList] = useState([""]);
   const [descInput, setDescInput] = useState("");
-  const [statusInput, setStatusInput] = useState("");
+  const [statusInput, setStatusInput] = useState(null);
 
-  const dispatch = useDispatch();
   const statusChangeHandler = (status) => setStatusInput(status);
   const titleChangeHandler = (e) => setTitleInput(e.target.value);
   const descChangeHandler = (e) => setDescInput(e.target.value);
+  const dispatch = useDispatch();
 
   const createTaskHandler = () => {
-    const list = activeBoard.lists.find(
-      (item) => item.title.toLowerCase() === statusInput.toLowerCase()
-    );
     const payload = {
       boardId: activeBoard._id,
-      listId: list._id,
+      listId: statusInput.id,
       title: titleInput,
       description: descInput,
       checkList: subTaskList.map((item) => ({
@@ -44,7 +41,7 @@ export default function AddTaskContainer({ onClose }) {
       })),
     };
 
-    createNewCard(payload, () => dispatch(fetchActiveBoard(payload.boardId)));
+    dispatch(createNewCard(payload));
     onClose();
   };
   return (
@@ -88,7 +85,7 @@ export default function AddTaskContainer({ onClose }) {
             />
             <StatusTitle>Status</StatusTitle>
             <DropDown
-              dataSource={["todo", "doing", "done"]}
+              dataSource={activeBoardList}
               onItemClicked={statusChangeHandler}
               width="100%"
             />

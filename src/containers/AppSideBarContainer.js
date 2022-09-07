@@ -7,7 +7,7 @@ import CreateNewBoard from "../components/appSideBar/CreateNewBoard";
 import SideBarLogo from "../components/appSideBar/SideBarLogo";
 import ThemeSwitch from "../components/appSideBar/ThemeSwitch";
 import Wrapper from "../components/common/Wrapper/Wrapper";
-import { fetchActiveBoard } from "../store/board-slice";
+import { fetchActiveBoard } from "../store/board-actions";
 
 export default function AppSideBarContainer({ setIsDark }) {
   const allBoards = useSelector((state) => state.board.allBoards);
