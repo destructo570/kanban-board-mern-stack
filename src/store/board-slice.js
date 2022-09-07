@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { Routes } from "../constants/constants";
 
 const initialState = {
   activeBoard: null,
@@ -17,7 +18,6 @@ const replaceBoards = (state, action) => {
 const updateTask = (state, action) => {
   const newCard = action.payload;
   const listId = newCard.listId;
-
   const list = state.activeBoard.find((list) => list._id === listId);
 
   return state;
@@ -39,10 +39,7 @@ const boardSlice = createSlice({
 export const updateCardData = (payload) => {
   return async (dispatch) => {
     const updateHandler = async () => {
-      const HOST_URL = process.env.REACT_APP_HOST_URL;
-      const URL = HOST_URL + "card";
-
-      const response = await axios.put(URL, {
+      const response = await axios.put(Routes.CARD, {
         title: payload.card.title,
         description: payload.card.description,
         checkList: payload.card.checkList,
@@ -65,11 +62,8 @@ export const updateCardData = (payload) => {
 export const fetchActiveBoard = (boardId) => {
   return async (dispatch) => {
     const fetchBoardHandler = async () => {
-      const HOST_URL = process.env.REACT_APP_HOST_URL;
-      const URL = HOST_URL + "board/" + boardId;
-      return await axios.get(URL);
+      return await axios.get(Routes.BOARD + boardId);
     };
-
     try {
       const response = await fetchBoardHandler();
       dispatch(boardActions.changeActiveBoard(response.data[0]));
@@ -82,9 +76,7 @@ export const fetchActiveBoard = (boardId) => {
 export const fetchAllBoards = () => {
   return async (dispatch) => {
     const getBoards = async () => {
-      const HOST_URL = process.env.REACT_APP_HOST_URL;
-      const URL = HOST_URL + "board";
-      return await axios.get(URL);
+      return await axios.get(Routes.BOARD);
     };
     try {
       const response = await getBoards();

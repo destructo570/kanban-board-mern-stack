@@ -1,2 +1,7 @@
-export const DUMMY_BOARDS = ["Platform Launch", "Marketing Plan", "Roadmap"];
-export const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+const HOST_URL = process.env.REACT_APP_HOST_URL;
+
+export const Routes = {
+  BOARD: HOST_URL + "board/",
+  LIST: HOST_URL + "list/",
+  CARD: HOST_URL + "card/",
+};

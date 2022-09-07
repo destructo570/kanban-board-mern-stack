@@ -10,6 +10,7 @@ function App({ setIsDark }) {
   useEffect(() => {
     dispatch(fetchAllBoards());
   }, [dispatch]);
+
   return (
     <Wrapper>
       <MyBoardsPage setIsDark={setIsDark} />

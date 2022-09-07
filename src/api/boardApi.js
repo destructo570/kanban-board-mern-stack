@@ -1,10 +1,9 @@
 import axios from "axios";
+import { Routes } from "../constants/constants";
 
 export const createNewCard = (payload, callback) => {
-  const HOST_URL = process.env.REACT_APP_HOST_URL;
-  const URL = HOST_URL + "card";
   axios
-    .post(URL, payload)
+    .post(Routes.CARD, payload)
     .then(() => {
       if (callback) callback();
     })
