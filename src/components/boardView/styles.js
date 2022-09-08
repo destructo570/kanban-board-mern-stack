@@ -16,6 +16,12 @@ export const StatusColumnsList = styled.ul`
   display: flex;
 `;
 
+export const StatusColumnsListHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const StatusColumnsListItem = styled.li`
   margin-left: 1em;
 `;
@@ -33,6 +39,23 @@ export const TaskList = styled.ul`
 `;
 
 export const TaskItemContainer = styled.li``;
+
+export const TaskListItemTitle = styled.div`
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+
+  svg {
+    width: 24px;
+    padding: 0.1em;
+  }
+
+  svg:hover {
+    background-color: ${(props) => props.theme.colors.secondaryAccent};
+    border-radius: 8px;
+  }
+`;
 
 export const AddColumnContainer = styled.div`
   border-radius: 8px;

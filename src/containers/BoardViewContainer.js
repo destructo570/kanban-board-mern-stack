@@ -19,10 +19,11 @@ export default function BoardViewContainer() {
     setCurrentTask(task);
     setShowTask((prev) => !prev);
   };
-
-  const toggleShowTask = () => {
-    setShowTask((prev) => !prev);
-  };
+  const toggleShowTask = () => setShowTask((prev) => !prev);
+  const taskItemEditHandler = (task) => {};
+  const taskItemDeleteHandler = (task) => {};
+  const listItemEditHandler = (list) => {};
+  const listItemDeleteHandler = (list) => {};
   return (
     <>
       <Wrapper bgColor={isDark ? "#282836" : "#F3F8FF"} minHeight="100%">
@@ -30,6 +31,10 @@ export default function BoardViewContainer() {
           <StatusColumns
             dataSource={activeBoard}
             onTaskClick={taskItemClickHandler}
+            onTaskEdit={taskItemEditHandler}
+            onTaskDelete={taskItemDeleteHandler}
+            onListEdit={listItemEditHandler}
+            onListDelete={listItemDeleteHandler}
           />
           <AddNewColumn />
         </BoardView>

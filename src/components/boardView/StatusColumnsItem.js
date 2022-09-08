@@ -1,11 +1,38 @@
 import React from "react";
-import { StatusColumnsListItem, StatusTitle, TaskList } from "./styles";
+import MoreOptions from "../common/moreOptions/MoreOptions";
+import {
+  StatusColumnsListItem,
+  StatusColumnsListHeader,
+  StatusTitle,
+  TaskList,
+} from "./styles";
 import TaskListItem from "./TaskListItem";
 
-export default function StatusColumnsItem({ dataSource, onTaskClick }) {
+export default function StatusColumnsItem({
+  dataSource,
+  onTaskClick,
+  onTaskEdit,
+  onTaskDelete,
+  onListEdit,
+  onListDelete,
+}) {
+  const listEditHandler = () => {
+    onListEdit({ id: dataSource._id, title: dataSource.title });
+  };
+  const listDeleteHandler = () => {
+    onListEdit({ id: dataSource._id, title: dataSource.title });
+  };
   return (
     <StatusColumnsListItem>
-      <StatusTitle>{dataSource.title}</StatusTitle>
+      <StatusColumnsListHeader>
+        <StatusTitle>{dataSource.title}</StatusTitle>
+        <MoreOptions
+          datasource={[
+            { title: "Edit", handler: listEditHandler },
+            { title: "Delete", handler: listDeleteHandler },
+          ]}
+        />
+      </StatusColumnsListHeader>
       <TaskList>
         {dataSource.cards.map((item, index) => {
           return (
@@ -13,6 +40,8 @@ export default function StatusColumnsItem({ dataSource, onTaskClick }) {
               key={item._id}
               dataSource={item}
               onTaskClick={onTaskClick}
+              onTaskEdit={onTaskEdit}
+              onTaskDelete={onTaskDelete}
             />
           );
         })}

@@ -3,7 +3,14 @@ import React from "react";
 import StatusColumnsItem from "./StatusColumnsItem";
 import { StatusColumnsList } from "./styles";
 
-export default function StatusColumns({ dataSource, onTaskClick }) {
+export default function StatusColumns({
+  dataSource,
+  onTaskClick,
+  onTaskEdit,
+  onTaskDelete,
+  onListEdit,
+  onListDelete,
+}) {
   let content = null;
 
   if (dataSource) {
@@ -13,6 +20,10 @@ export default function StatusColumns({ dataSource, onTaskClick }) {
           key={item._id}
           dataSource={item}
           onTaskClick={onTaskClick}
+          onTaskEdit={onTaskEdit}
+          onTaskDelete={onTaskDelete}
+          onListEdit={onListEdit}
+          onListDelete={onListDelete}
         />
       );
     });

@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../common/Card/Card";
 import CardSubTitle from "../common/Card/CardSubTitle";
 import CardTitle from "../common/Card/CardTitle";
-import {} from "./styles";
+import { TaskListItemTitle } from "./styles";
 
-export default function TaskListItem({ dataSource, onTaskClick }) {
+import MoreOptions from "../common/moreOptions/MoreOptions";
+
+export default function TaskListItem({
+  dataSource,
+  onTaskClick,
+  onTaskEdit,
+  onTaskDelete,
+}) {
   const numOfSubTasks = dataSource.checkList.length;
   let numOfCompletedSubTask = 0;
 
@@ -15,9 +22,28 @@ export default function TaskListItem({ dataSource, onTaskClick }) {
   const onClickHandler = () => {
     onTaskClick(dataSource);
   };
+
+  const taskEditHandler = (e) => {
+    e.stopPropagation();
+    onTaskEdit(dataSource);
+  };
+
+  const taskDeleteHandler = (e) => {
+    e.stopPropagation();
+    onTaskDelete(dataSource);
+  };
+
   return (
     <Card width="320px" onClick={onClickHandler}>
-      <CardTitle>{dataSource.title}</CardTitle>
+      <TaskListItemTitle>
+        <CardTitle>{dataSource.title}</CardTitle>
+        <MoreOptions
+          datasource={[
+            { title: "Edit", handler: taskEditHandler },
+            { title: "Delete", handler: taskDeleteHandler },
+          ]}
+        />
+      </TaskListItemTitle>
       <CardSubTitle>{`${numOfCompletedSubTask} of ${numOfSubTasks} subtasks`}</CardSubTitle>
     </Card>
   );
