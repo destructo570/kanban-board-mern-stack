@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import AddNewColumn from "../components/boardView/AddNewColumn";
 import BoardView from "../components/boardView/BoardView";
 import StatusColumns from "../components/boardView/StatusColumns";
@@ -8,9 +8,11 @@ import ViewTaskContainer from "./ViewTaskContainer";
 import { getUserThemePref } from "../helpers/helpers";
 import EditDialog from "../components/common/editDialog/EditDialog";
 import EditTaskContainer from "./EditTaskContainer";
+import { createNewList } from "../store/board-actions";
 
 export default function BoardViewContainer() {
   const activeBoard = useSelector((state) => state.board.activeBoard);
+  const dispatch = useDispatch();
   const [showTask, setShowTask] = useState(false);
   const [showEditTaskDialog, setShowEditTaskDialog] = useState(false);
   const [currentTask, setCurrentTask] = useState(null);
@@ -39,7 +41,7 @@ export default function BoardViewContainer() {
     console.log(editingList);
   };
   const createNewColumnHandler = (title) => {
-    console.log(title);
+    dispatch(createNewList({ title, boardId: activeBoard._id }));
   };
   const listItemDeleteHandler = (list) => {};
 
@@ -84,7 +86,7 @@ export default function BoardViewContainer() {
         <EditDialog
           onClose={toggleShowCreateList}
           onSubmit={createNewColumnHandler}
-          title="Edit list name"
+          title="Creater new list"
         />
       )}
       {showEditTaskDialog && (

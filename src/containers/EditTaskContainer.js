@@ -14,10 +14,9 @@ import Button from "../components/form/button/Button";
 import FormTextArea from "../components/form/textArea/FormTextArea";
 import BackDrop from "../components/common/backDrop/BackDrop";
 import { useDispatch, useSelector } from "react-redux";
-import { createNewCard, updateCardData } from "../store/board-actions";
+import { updateCardData } from "../store/board-actions";
 
 export default function EditTaskContainer({ onClose, task }) {
-  const activeBoard = useSelector((state) => state.board.activeBoard);
   const activeBoardList = useSelector((state) => state.board.activeBoardList);
   const [titleInput, setTitleInput] = useState(task.title);
   const [subTaskList, setSubTaskList] = useState([""]);

@@ -16,6 +16,20 @@ export const createNewBoard = (title) => {
   };
 };
 
+export const createNewList = (payload) => {
+  return async (dispatch) => {
+    const createListHandler = async () => {
+      return await axios.post(Routes.LIST, payload);
+    };
+    try {
+      const response = await createListHandler();
+      dispatch(fetchAllBoards());
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
 export const fetchActiveBoard = (boardId) => {
   return async (dispatch) => {
     const fetchBoardHandler = async () => {
