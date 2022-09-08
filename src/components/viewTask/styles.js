@@ -2,7 +2,6 @@ import styled from "@emotion/styled/macro";
 
 export const ViewTaskPane = styled.section`
   border-radius: 8px;
-
   margin: 1em;
   max-width: 720px;
   display: flex;

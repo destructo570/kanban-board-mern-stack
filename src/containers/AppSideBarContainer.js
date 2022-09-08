@@ -1,15 +1,17 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AllBoards from "../components/appSideBar/AllBoards";
 import AppSideBar from "../components/appSideBar/AppSideBar";
 import CreateNewBoard from "../components/appSideBar/CreateNewBoard";
 import SideBarLogo from "../components/appSideBar/SideBarLogo";
 import ThemeSwitch from "../components/appSideBar/ThemeSwitch";
+import EditDialog from "../components/common/editDialog/EditDialog";
 import Wrapper from "../components/common/Wrapper/Wrapper";
 import { fetchActiveBoard } from "../store/board-actions";
 
 export default function AppSideBarContainer({ setIsDark }) {
+  const [showCreate, setShowCreate] = useState(false);
   const allBoards = useSelector((state) => state.board.allBoards);
   const dispatch = useDispatch();
   const changeActiveBoardHandler = (boardId) => {
@@ -19,20 +21,34 @@ export default function AppSideBarContainer({ setIsDark }) {
     setIsDark((prev) => !prev);
   };
 
-  const createNewBoardHandler = () => {};
+  const toggleCreateDialog = () => setShowCreate((prev) => !prev);
+
+  const createNewBoardHandler = (boardTitle) => {
+    console.log(boardTitle);
+  };
+
   return (
-    <AppSideBar>
-      <Wrapper direction="column">
-        <SideBarLogo />
-        <AllBoards
-          dataSource={allBoards}
-          onBoardClick={changeActiveBoardHandler}
+    <>
+      <AppSideBar>
+        <Wrapper direction="column">
+          <SideBarLogo />
+          <AllBoards
+            dataSource={allBoards}
+            onBoardClick={changeActiveBoardHandler}
+          />
+          <CreateNewBoard handler={toggleCreateDialog} />
+        </Wrapper>
+        <Wrapper width="100%">
+          <ThemeSwitch onThemeChange={themeHandler} />
+        </Wrapper>
+      </AppSideBar>
+      {showCreate && (
+        <EditDialog
+          onClose={toggleCreateDialog}
+          onSubmit={createNewBoardHandler}
+          title="Create new board"
         />
-        <CreateNewBoard handler={createNewBoardHandler} />
-      </Wrapper>
-      <Wrapper width="100%">
-        <ThemeSwitch onThemeChange={themeHandler} />
-      </Wrapper>
-    </AppSideBar>
+      )}
+    </>
   );
 }
