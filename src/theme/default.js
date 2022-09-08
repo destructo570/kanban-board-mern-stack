@@ -32,8 +32,8 @@ export const lighTheme = {
     border: "rgba(0,0,0,0.1)",
     shadow: "rgba(50, 50, 93, 0.15)",
     textHighlight: "#cfdb5e",
-    popupBg: "#a1a1b3",
-    popupHover: "#87879a",
+    popupBg: "#e0e0e0",
+    popupHover: "#d5d5d5",
   },
   ...common,
 };
@@ -53,8 +53,8 @@ export const darkTheme = {
     border: "rgba(250,250,250,0.1)",
     shadow: "rgba(0, 0, 0, 0.15)",
     textHighlight: "#d9e854",
-    popupBg: "#a1a1b3",
-    popupHover: "#87879a",
+    popupBg: "#3f3f51",
+    popupHover: "#454558",
   },
   ...common,
 };

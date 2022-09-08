@@ -1,6 +1,10 @@
 import styled from "@emotion/styled/macro";
 
-export const MoreOptionsPane = styled.div``;
+export const MoreOptionsPane = styled.div`
+  svg:hover {
+    background-color: ${(props) => props.theme.colors.popupHover};
+  }
+`;
 
 export const OptionsList = styled.ul`
   display: flex;
