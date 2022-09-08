@@ -7,15 +7,18 @@ import Wrapper from "../components/common/Wrapper/Wrapper";
 import ViewTaskContainer from "./ViewTaskContainer";
 import { getUserThemePref } from "../helpers/helpers";
 import EditDialog from "../components/common/editDialog/EditDialog";
+import EditTaskContainer from "./EditTaskContainer";
 
 export default function BoardViewContainer() {
   const activeBoard = useSelector((state) => state.board.activeBoard);
   const [showTask, setShowTask] = useState(false);
+  const [showEditTaskDialog, setShowEditTaskDialog] = useState(false);
   const [currentTask, setCurrentTask] = useState(null);
   const isDark = getUserThemePref();
   const [showEdit, setShowEdit] = useState(false);
   const [showCreateList, setShowCreateList] = useState(false);
   const [editingList, setEditingList] = useState(null);
+  const [currentEditTask, setCurrentEditTask] = useState(null);
   const statusList = activeBoard?.lists.map((list) => list.title);
 
   const taskItemClickHandler = (task) => {
@@ -23,9 +26,13 @@ export default function BoardViewContainer() {
     setShowTask((prev) => !prev);
   };
   const toggleShowEdit = () => setShowEdit((prev) => !prev);
+  const toggleShowEditTask = () => setShowEditTaskDialog((prev) => !prev);
   const toggleShowTask = () => setShowTask((prev) => !prev);
   const toggleShowCreateList = () => setShowCreateList((prev) => !prev);
-  const taskItemEditHandler = (task) => {};
+  const taskItemEditHandler = (task) => {
+    setCurrentEditTask(task);
+    toggleShowEditTask();
+  };
   const taskItemDeleteHandler = (task) => {};
   const listItemEditHandler = (title) => {
     console.log(title);
@@ -78,6 +85,12 @@ export default function BoardViewContainer() {
           onClose={toggleShowCreateList}
           onSubmit={createNewColumnHandler}
           title="Edit list name"
+        />
+      )}
+      {showEditTaskDialog && (
+        <EditTaskContainer
+          task={currentEditTask}
+          onClose={toggleShowEditTask}
         />
       )}
     </>
