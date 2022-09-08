@@ -47,7 +47,8 @@ export const BoardListItem = styled.li`
   align-items: center;
   padding-left: 1em;
   cursor: pointer;
-  color: ${(props) => props.theme.colors.textSecondary};
+  color: ${({ isActive, theme }) =>
+    isActive ? theme.colors.textPrimary : theme.colors.textSecondary};
 
   &:hover {
     background-color: ${(props) => props.theme.colors.secondaryLight};
