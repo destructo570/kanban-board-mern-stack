@@ -8,7 +8,7 @@ import SideBarLogo from "../components/appSideBar/SideBarLogo";
 import ThemeSwitch from "../components/appSideBar/ThemeSwitch";
 import EditDialog from "../components/common/editDialog/EditDialog";
 import Wrapper from "../components/common/Wrapper/Wrapper";
-import { fetchActiveBoard } from "../store/board-actions";
+import { createNewBoard, fetchActiveBoard } from "../store/board-actions";
 
 export default function AppSideBarContainer({ setIsDark }) {
   const [showCreate, setShowCreate] = useState(false);
@@ -24,7 +24,8 @@ export default function AppSideBarContainer({ setIsDark }) {
   const toggleCreateDialog = () => setShowCreate((prev) => !prev);
 
   const createNewBoardHandler = (boardTitle) => {
-    console.log(boardTitle);
+    dispatch(createNewBoard(boardTitle));
+    toggleCreateDialog();
   };
 
   return (

@@ -2,6 +2,20 @@ import axios from "axios";
 import { Routes } from "../constants/constants";
 import { boardActions } from "./board-slice";
 
+export const createNewBoard = (title) => {
+  return async (dispatch) => {
+    const createBoardHandler = async () => {
+      return await axios.post(Routes.BOARD, { title });
+    };
+    try {
+      const response = await createBoardHandler();
+      dispatch(fetchAllBoards());
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
 export const fetchActiveBoard = (boardId) => {
   return async (dispatch) => {
     const fetchBoardHandler = async () => {
