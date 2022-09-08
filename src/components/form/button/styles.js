@@ -15,7 +15,7 @@ export const StyledButton = styled.button`
   cursor: pointer;
   text-transform: ${({ textStyle }) => (textStyle ? textStyle : "none")};
   width: ${({ width }) => (width ? width : "100%")};
-  color: ${(props) => props.theme.colors.textPrimary};
+  color: ${({ color }) => (color ? color : "white")};
   background-color: ${(props) => props.theme.colors.primaryAccent};
 
   &:hover {

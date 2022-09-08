@@ -6,10 +6,13 @@ import {
 } from "./styles";
 import FormInput from "../form/input/FormInput";
 import { ReactComponent as CloseIconLight } from "../../assets/icons/close-light.svg";
+import { ReactComponent as CloseIconDark } from "../../assets/icons/close-dark.svg";
 import Wrapper from "../common/Wrapper/Wrapper";
 import Button from "../form/button/Button";
+import { getUserThemePref } from "../../helpers/helpers";
 
 export default function EditSubTaskList({ subTaskList, setSubTaskList }) {
+  const isDark = getUserThemePref();
   const addSubTaskClickHandler = () => {
     setSubTaskList((prev) => {
       const newState = [...prev, ""];
@@ -40,7 +43,11 @@ export default function EditSubTaskList({ subTaskList, setSubTaskList }) {
           value={item}
           onChange={inputChangeHandler.bind(null, index)}
         />
-        <CloseIconLight onClick={removeClickHandler.bind(null, index)} />
+        {isDark ? (
+          <CloseIconLight onClick={removeClickHandler.bind(null, index)} />
+        ) : (
+          <CloseIconDark onClick={removeClickHandler.bind(null, index)} />
+        )}
       </EditSubTaskListItem>
     );
   });

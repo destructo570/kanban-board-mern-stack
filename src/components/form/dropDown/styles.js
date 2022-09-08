@@ -30,6 +30,7 @@ export const Pane = styled.div`
   background-color: ${(props) => props.theme.colors.primary};
   border-radius: 8px;
   justify-content: ${({ justify }) => justify};
+  align-items: center;
   padding: 0 1em;
 
   &:hover {
@@ -61,4 +62,3 @@ export const DropDownItem = styled.li`
     background-color: ${(props) => props.theme.colors.secondaryLight};
   }
 `;
-export const Image = styled.img``;

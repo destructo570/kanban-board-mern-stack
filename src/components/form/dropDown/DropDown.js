@@ -5,9 +5,10 @@ import {
   DropDownItem,
   Pane,
   CurrentItem,
-  Image,
 } from "./styles";
-import dropIcon from "../../../assets/icons/arrow-drop-down.svg";
+import { ReactComponent as DropIconLight } from "../../../assets/icons/arrow-drop-down.svg";
+import { ReactComponent as DropIconDark } from "../../../assets/icons/arrow-drop-down-dark.svg";
+import { getUserThemePref } from "../../../helpers/helpers";
 
 export default function DropDown({
   dataSource,
@@ -16,6 +17,7 @@ export default function DropDown({
   width,
   initialValue,
 }) {
+  const isDark = getUserThemePref();
   const [value, setValue] = useState();
   const [clickState, setClickState] = useState(false);
   const containerRef = useRef(null);
@@ -38,11 +40,12 @@ export default function DropDown({
       <Pane
         direction="row"
         justify="space-between"
+        alignItems="center"
         margin="1em 1em 0.5em 1em"
         onClick={onClickHandler}
       >
         <CurrentItem>{value}</CurrentItem>
-        <Image src={dropIcon} alt="" />
+        {isDark ? <DropIconLight /> : <DropIconDark />}
       </Pane>
       {clickState && (
         <DropDownList>
