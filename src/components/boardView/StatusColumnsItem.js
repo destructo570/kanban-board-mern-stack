@@ -20,7 +20,7 @@ export default function StatusColumnsItem({
     onListEdit({ id: dataSource._id, title: dataSource.title });
   };
   const listDeleteHandler = () => {
-    onListEdit({ id: dataSource._id, title: dataSource.title });
+    onListDelete({ id: dataSource._id, title: dataSource.title });
   };
   return (
     <StatusColumnsListItem>

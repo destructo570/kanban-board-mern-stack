@@ -8,7 +8,7 @@ import ViewTaskContainer from "./ViewTaskContainer";
 import { getUserThemePref } from "../helpers/helpers";
 import EditDialog from "../components/common/editDialog/EditDialog";
 import EditTaskContainer from "./EditTaskContainer";
-import { createNewList, updateList } from "../store/board-actions";
+import { createNewList, deleteList, updateList } from "../store/board-actions";
 
 export default function BoardViewContainer() {
   const activeBoard = useSelector((state) => state.board.activeBoard);
@@ -42,8 +42,11 @@ export default function BoardViewContainer() {
   };
   const createNewColumnHandler = (title) => {
     dispatch(createNewList({ title, boardId: activeBoard._id }));
+    toggleShowCreateList();
   };
-  const listItemDeleteHandler = (list) => {};
+  const listItemDeleteHandler = (list) => {
+    dispatch(deleteList({ listId: list.id, boardId: activeBoard._id }));
+  };
 
   const onListEdit = (task) => {
     setEditingList(task);

@@ -44,6 +44,20 @@ export const updateList = (payload) => {
   };
 };
 
+export const deleteList = (payload) => {
+  return async (dispatch) => {
+    const deleteListHandler = async () => {
+      return await axios.delete(Routes.LIST + payload.listId);
+    };
+    try {
+      const response = await deleteListHandler();
+      dispatch(fetchActiveBoard(payload.boardId));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
 export const fetchActiveBoard = (boardId) => {
   return async (dispatch) => {
     const fetchBoardHandler = async () => {
