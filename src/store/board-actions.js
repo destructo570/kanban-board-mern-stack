@@ -23,7 +23,7 @@ export const createNewList = (payload) => {
     };
     try {
       const response = await createListHandler();
-      dispatch(fetchAllBoards());
+      dispatch(fetchActiveBoard(payload.boardId));
     } catch (err) {
       console.log(err);
     }
