@@ -14,6 +14,7 @@ export default function BoardViewContainer() {
   const [currentTask, setCurrentTask] = useState(null);
   const isDark = getUserThemePref();
   const [showEdit, setShowEdit] = useState(false);
+  const [showCreateList, setShowCreateList] = useState(false);
   const [editingList, setEditingList] = useState(null);
   const statusList = activeBoard?.lists.map((list) => list.title);
 
@@ -23,11 +24,15 @@ export default function BoardViewContainer() {
   };
   const toggleShowEdit = () => setShowEdit((prev) => !prev);
   const toggleShowTask = () => setShowTask((prev) => !prev);
+  const toggleShowCreateList = () => setShowCreateList((prev) => !prev);
   const taskItemEditHandler = (task) => {};
   const taskItemDeleteHandler = (task) => {};
   const listItemEditHandler = (title) => {
     console.log(title);
     console.log(editingList);
+  };
+  const createNewColumnHandler = (title) => {
+    console.log(title);
   };
   const listItemDeleteHandler = (list) => {};
 
@@ -35,6 +40,7 @@ export default function BoardViewContainer() {
     setEditingList(task);
     toggleShowEdit();
   };
+
   return (
     <>
       <Wrapper bgColor={isDark ? "#282836" : "#F3F8FF"} minHeight="100%">
@@ -47,7 +53,7 @@ export default function BoardViewContainer() {
             onListEdit={onListEdit}
             onListDelete={listItemDeleteHandler}
           />
-          <AddNewColumn />
+          <AddNewColumn onAddColumn={toggleShowCreateList} />
         </BoardView>
       </Wrapper>
 
@@ -63,6 +69,14 @@ export default function BoardViewContainer() {
         <EditDialog
           onClose={toggleShowEdit}
           onSubmit={listItemEditHandler}
+          title="Edit list name"
+        />
+      )}
+
+      {showCreateList && (
+        <EditDialog
+          onClose={toggleShowCreateList}
+          onSubmit={createNewColumnHandler}
           title="Edit list name"
         />
       )}
