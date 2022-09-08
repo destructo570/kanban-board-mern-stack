@@ -7,10 +7,10 @@ export const EditTaskPane = styled.section`
   max-width: 720px;
   display: flex;
   align-items: center;
-  min-height: 80vh;
-  position: fixed;
-  top: 20px;
-  bottom: 0;
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  bottom: 0px;
   left: 0;
   right: 0;
   z-index: 500;
