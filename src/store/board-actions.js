@@ -30,6 +30,20 @@ export const createNewList = (payload) => {
   };
 };
 
+export const updateList = (payload) => {
+  return async (dispatch) => {
+    const updateListHandler = async () => {
+      return await axios.put(Routes.LIST, payload);
+    };
+    try {
+      const response = await updateListHandler();
+      dispatch(fetchAllBoards());
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
 export const fetchActiveBoard = (boardId) => {
   return async (dispatch) => {
     const fetchBoardHandler = async () => {
