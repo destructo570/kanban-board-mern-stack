@@ -8,7 +8,12 @@ import ViewTaskContainer from "./ViewTaskContainer";
 import { getUserThemePref } from "../helpers/helpers";
 import EditDialog from "../components/common/editDialog/EditDialog";
 import EditTaskContainer from "./EditTaskContainer";
-import { createNewList, deleteList, updateList } from "../store/board-actions";
+import {
+  createNewList,
+  deleteCard,
+  deleteList,
+  updateList,
+} from "../store/board-actions";
 
 export default function BoardViewContainer() {
   const activeBoard = useSelector((state) => state.board.activeBoard);
@@ -35,7 +40,9 @@ export default function BoardViewContainer() {
     setCurrentEditTask(task);
     toggleShowEditTask();
   };
-  const taskItemDeleteHandler = (task) => {};
+  const taskItemDeleteHandler = (task) => {
+    dispatch(deleteCard({ cardId: task._id, boardId: task.boardId }));
+  };
   const listItemEditHandler = (title) => {
     dispatch(updateList({ title, listId: editingList.id }));
     toggleShowEdit();
