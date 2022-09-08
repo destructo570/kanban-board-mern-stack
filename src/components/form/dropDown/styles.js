@@ -18,7 +18,7 @@ export const Container = styled.div`
 
   @media (min-width: ${(props) => props.theme.media.medium}) {
     ${(props) =>
-      props.borderBg &&
+      props.shouldHide &&
       `
     display: none;
   `}
