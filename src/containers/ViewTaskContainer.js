@@ -33,11 +33,9 @@ export default function ViewTaskContainer({ task, onClose, statusList }) {
   };
 
   const taskUpdateHandler = () => {
-    const payload = {
-      card: { ...task, checkList: subTasks, listId: status.id },
-    };
-
-    dispatch(updateCardData(payload));
+    dispatch(
+      updateCardData({ ...task, checkList: subTasks, listId: status.id })
+    );
     onClose();
   };
 

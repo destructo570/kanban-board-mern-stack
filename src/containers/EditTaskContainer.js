@@ -14,7 +14,7 @@ import Button from "../components/form/button/Button";
 import FormTextArea from "../components/form/textArea/FormTextArea";
 import BackDrop from "../components/common/backDrop/BackDrop";
 import { useDispatch, useSelector } from "react-redux";
-import { createNewCard } from "../store/board-actions";
+import { createNewCard, updateCardData } from "../store/board-actions";
 
 export default function EditTaskContainer({ onClose, task }) {
   const activeBoard = useSelector((state) => state.board.activeBoard);
@@ -38,17 +38,19 @@ export default function EditTaskContainer({ onClose, task }) {
   }, [activeBoardList, task.listId, task.checkList]);
 
   const editTaskHandler = () => {
-    const payload = {
-      boardId: activeBoard._id,
-      listId: statusInput.id,
+    const card = {
+      _id: task._id,
       title: titleInput,
       description: descInput,
       checkList: subTaskList.map((item) => ({
         body: item,
         isCompleted: false,
       })),
+      listId: statusInput.id,
+      boardId: task.boardId,
     };
-    console.log(payload);
+
+    dispatch(updateCardData(card));
     onClose();
   };
   return (

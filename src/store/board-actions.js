@@ -55,11 +55,11 @@ export const updateCardData = (payload) => {
   return async (dispatch) => {
     const updateHandler = async () => {
       const response = await axios.put(Routes.CARD, {
-        title: payload.card.title,
-        description: payload.card.description,
-        checkList: payload.card.checkList,
-        listId: payload.card.listId,
-        cardId: payload.card._id,
+        title: payload.title,
+        description: payload.description,
+        checkList: payload.checkList,
+        listId: payload.listId,
+        cardId: payload._id,
       });
       if (response.status === 200) {
       }
@@ -67,7 +67,7 @@ export const updateCardData = (payload) => {
 
     try {
       await updateHandler();
-      dispatch(fetchActiveBoard(payload.card.boardId));
+      dispatch(fetchActiveBoard(payload.boardId));
     } catch (err) {
       console.log(err);
     }
