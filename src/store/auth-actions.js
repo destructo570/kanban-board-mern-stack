@@ -15,7 +15,6 @@ export const getAuthToken = (payload, callback) => {
       return response;
     };
 
-    console.log(Routes.AUTH + "login", payload);
     try {
       const response = await getToken();
       const expiration = 60 * 60 * 1000;
