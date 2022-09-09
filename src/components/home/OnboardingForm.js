@@ -4,7 +4,7 @@ import Wrapper from "../common/Wrapper/Wrapper";
 import SignInForm from "./SignInForm";
 import SignUpForm from "./SignUpForm";
 
-export default function OnboardingForm() {
+export default function OnboardingForm({ onSignup, onSignin }) {
   const [showForm, setShowForm] = useState(true);
   const [isSignUpActive, setIsSignUpActive] = useState(true);
   const [isSignInActive, setIsSignInActive] = useState(false);
@@ -32,8 +32,8 @@ export default function OnboardingForm() {
         </ActionTitle>
       </Wrapper>
       <Wrapper width="100%" padding="2em 0 1em 0" justify="center">
-        {!showForm && <SignInForm />}
-        {showForm && <SignUpForm />}
+        {!showForm && <SignInForm onSignin={onSignin} />}
+        {showForm && <SignUpForm onSignup={onSignup} />}
       </Wrapper>
     </FormWrapper>
   );

@@ -11,8 +11,10 @@ import {
   HeroBody,
 } from "../components/home/styles";
 import OnboardingForm from "../components/home/OnboardingForm";
+import { useDispatch } from "react-redux";
+import { getAuthToken, signUp } from "../store/auth-actions";
 
-export default function HomeContainer() {
+export default function HomeContainer({ onSignup, onSignin }) {
   return (
     <Home>
       <Header>
@@ -25,7 +27,7 @@ export default function HomeContainer() {
             <HeroTitle>Kanban.</HeroTitle>
             <HeroBody>Stay focused and productive</HeroBody>
           </HeroSection>
-          <OnboardingForm />
+          <OnboardingForm onSignup={onSignup} onSignin={onSignin} />
         </Wrapper>
       </Header>
       <Footer />

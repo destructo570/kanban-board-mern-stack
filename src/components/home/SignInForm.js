@@ -3,7 +3,7 @@ import FormInput from "../form/input/FormInput";
 import Wrapper from "../common/Wrapper/Wrapper";
 import Button from "../form/button/Button";
 
-export default function SignInForm() {
+export default function SignInForm({ onSignin }) {
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const [emailHasError, setEmailHasError] = useState(false);
@@ -17,12 +17,28 @@ export default function SignInForm() {
   };
 
   const paswordChangeHandler = (e) => {
-    if (e.target.value.length < 6) setPasswordHasError(true);
+    if (e.target.value.length < 5) setPasswordHasError(true);
     else setPasswordHasError(false);
     setPasswordValue(e.target.value);
   };
 
-  const submitHandler = (e) => {};
+  const submitHandler = (e) => {
+    if (
+      !emailHasError &&
+      !passwordHasError &&
+      emailValue !== "" &&
+      passwordValue !== ""
+    ) {
+      onSignin({ email: emailValue, password: passwordValue });
+    }
+  };
+
+  const resetForm = () => {
+    setEmailValue("");
+    setPasswordValue("");
+    setEmailHasError(false);
+    setPasswordHasError(false);
+  };
 
   return (
     <Wrapper direction="column" width="100%">
@@ -38,7 +54,7 @@ export default function SignInForm() {
         placeholder="Enter password"
         value={passwordValue}
         hasError={passwordHasError}
-        errorMessage="Minimum password length is 6"
+        errorMessage="Minimum password length is 5"
         onChange={paswordChangeHandler}
         type="password"
       />

@@ -7,6 +7,7 @@ import { darkTheme, lighTheme } from "./theme/default";
 import globalStyles from "./theme/global";
 import store from "./store/index";
 import { getUserThemePref, setUserThemePref } from "./helpers/helpers";
+import { BrowserRouter } from "react-router-dom";
 
 const Root = () => {
   const [isDark, setIsDark] = useState(getUserThemePref("isDark"));
@@ -20,9 +21,11 @@ const Root = () => {
     <>
       <ThemeProvider theme={isDark ? darkTheme : lighTheme}>
         <Global styles={globalStyles} />
-        <Provider store={store}>
-          <App setIsDark={setIsDarkHandler} />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <App setIsDark={setIsDarkHandler} />
+          </Provider>
+        </BrowserRouter>
       </ThemeProvider>
     </>
   );
