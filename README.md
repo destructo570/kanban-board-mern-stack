@@ -1,4 +1,4 @@
-# 📋 Kanban board full stack web app
+# 📋 Kanban Board MERN Stack Web App
 
 A minimal kanban board web app made with MERN stack. Manage all your projects and tasks at one place.
 
