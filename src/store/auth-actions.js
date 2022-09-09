@@ -14,6 +14,8 @@ export const getAuthToken = (payload, callback) => {
       const response = await axios.post(Routes.AUTH + "login", payload);
       return response;
     };
+
+    console.log(Routes.AUTH + "login", payload);
     try {
       const response = await getToken();
       const expiration = 60 * 60 * 1000;
