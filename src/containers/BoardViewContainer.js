@@ -44,7 +44,9 @@ export default function BoardViewContainer() {
     dispatch(deleteCard({ cardId: task._id, boardId: task.boardId }));
   };
   const listItemEditHandler = (title) => {
-    dispatch(updateList({ title, listId: editingList.id }));
+    dispatch(
+      updateList({ title, listId: editingList.id, boardId: activeBoard._id })
+    );
     toggleShowEdit();
   };
   const createNewColumnHandler = (title) => {

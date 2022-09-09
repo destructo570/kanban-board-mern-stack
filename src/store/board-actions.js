@@ -36,6 +36,7 @@ export const createNewList = (payload) => {
 };
 
 export const updateList = (payload) => {
+  console.log(payload);
   return async (dispatch) => {
     const updateListHandler = async () => {
       return await axios.put(Routes.LIST, payload, {
@@ -44,7 +45,7 @@ export const updateList = (payload) => {
     };
     try {
       const response = await updateListHandler();
-      dispatch(fetchAllBoards());
+      dispatch(fetchActiveBoard(payload.boardId));
     } catch (err) {
       console.log(err);
     }
