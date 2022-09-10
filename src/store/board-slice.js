@@ -25,14 +25,6 @@ const replaceActiveBoardList = (state, action) => {
   return newState;
 };
 
-const updateTask = (state, action) => {
-  const newCard = action.payload;
-  const listId = newCard.listId;
-  const list = state.activeBoard.find((list) => list._id === listId);
-
-  return state;
-};
-
 const changeActiveBoard = (state, action) => {
   return {
     ...state,
@@ -46,7 +38,6 @@ const boardSlice = createSlice({
   reducers: {
     changeActiveBoard,
     replaceBoards,
-    updateTask,
     replaceActiveBoardList,
   },
 });
