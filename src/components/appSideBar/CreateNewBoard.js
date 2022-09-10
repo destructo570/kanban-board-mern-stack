@@ -5,7 +5,7 @@ import Wrapper from "../common/Wrapper/Wrapper";
 import { CreateNewTitle } from "./styles";
 import { getUserThemePref } from "../../helpers/helpers";
 
-export default function CreateNewBoard({ handler }) {
+export default function CreateNewBoard({ handler, title }) {
   const isDark = getUserThemePref();
   return (
     <Wrapper
@@ -17,7 +17,7 @@ export default function CreateNewBoard({ handler }) {
       justify="flex-start"
     >
       {isDark ? <LayoutIconLight /> : <LayoutIconDark />}
-      <CreateNewTitle>Create New Board</CreateNewTitle>
+      <CreateNewTitle>{title ? title : "Create New Board"}</CreateNewTitle>
     </Wrapper>
   );
 }

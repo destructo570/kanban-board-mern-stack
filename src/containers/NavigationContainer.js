@@ -7,11 +7,16 @@ import ActionButton from "../components/navigation/ActionButton";
 import Navigation from "../components/navigation/Navigation";
 import AddTaskContainer from "./AddTaskContainer";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchActiveBoard } from "../store/board-actions";
+import { createNewBoard, fetchActiveBoard } from "../store/board-actions";
+import Button from "../components/form/button/Button";
+import CreateNewBoard from "../components/appSideBar/CreateNewBoard";
+import EditDialog from "../components/common/editDialog/EditDialog";
 
 export default function NavigationContainer() {
   const activeBoard = useSelector((state) => state.board.activeBoard);
+  const activeBoardList = useSelector((state) => state.board.activeBoardList);
   const allBoards = useSelector((state) => state.board.allBoards);
+  const [showCreate, setShowCreate] = useState(false);
   const dispatch = useDispatch();
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
 
@@ -23,8 +28,12 @@ export default function NavigationContainer() {
   const onBoardClickedHandler = (board) => {
     dispatch(fetchActiveBoard(board.id));
   };
-
+  const toggleCreateDialog = () => setShowCreate((prev) => !prev);
   const toggleAddTaskModal = () => setShowAddTaskModal((prev) => !prev);
+  const createNewBoardHandler = (boardTitle) => {
+    dispatch(createNewBoard({ boardTitle }));
+    toggleCreateDialog();
+  };
 
   return (
     <>
@@ -44,14 +53,25 @@ export default function NavigationContainer() {
             initialValue={activeBoard?.title}
           />
 
-          <ActionButton
-            title="Add new task"
-            icon={addIcon}
-            handler={toggleAddTaskModal}
-          />
+          <CreateNewBoard handler={toggleCreateDialog} title="New board" />
+
+          {allBoards.length > 0 && activeBoardList.length > 0 && (
+            <ActionButton
+              title="Add new task"
+              icon={addIcon}
+              handler={toggleAddTaskModal}
+            />
+          )}
         </Wrapper>
       </Navigation>
       {showAddTaskModal && <AddTaskContainer onClose={toggleAddTaskModal} />}
+      {showCreate && (
+        <EditDialog
+          onClose={toggleCreateDialog}
+          onSubmit={createNewBoardHandler}
+          title="Enter title for board"
+        />
+      )}
     </>
   );
 }

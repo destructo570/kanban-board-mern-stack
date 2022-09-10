@@ -79,3 +79,16 @@ export const AddColumnTitle = styled.p`
   font-size: 1.4em;
   color: ${(props) => props.theme.colors.textSecondary};
 `;
+
+export const NoBoardsPane = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  min-height: 700px;
+  color: ${(props) => props.theme.colors.textSecondary};
+
+  @media (min-width: ${(props) => props.theme.media.medium}) {
+    padding-left: 250px;
+  }
+`;
