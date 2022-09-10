@@ -36,6 +36,7 @@ export default function BoardViewContainer() {
   const toggleShowEditTask = () => setShowEditTaskDialog((prev) => !prev);
   const toggleShowTask = () => setShowTask((prev) => !prev);
   const toggleShowCreateList = () => setShowCreateList((prev) => !prev);
+
   const taskItemEditHandler = (task) => {
     setCurrentEditTask(task);
     toggleShowEditTask();
@@ -98,7 +99,7 @@ export default function BoardViewContainer() {
         <EditDialog
           onClose={toggleShowCreateList}
           onSubmit={createNewColumnHandler}
-          title="Creater new list"
+          title="Create new list"
         />
       )}
       {showEditTaskDialog && (
