@@ -9,6 +9,7 @@ import {
 import { ReactComponent as DropIconLight } from "../../../assets/icons/arrow-drop-down.svg";
 import { ReactComponent as DropIconDark } from "../../../assets/icons/arrow-drop-down-dark.svg";
 import { getUserThemePref } from "../../../helpers/helpers";
+import useClickOutside from "../../../hooks/useClickOutside";
 
 export default function DropDown({
   dataSource,
@@ -20,7 +21,6 @@ export default function DropDown({
   const isDark = getUserThemePref();
   const [value, setValue] = useState();
   const [clickState, setClickState] = useState(false);
-  const containerRef = useRef(null);
   const onClickHandler = () => {
     setClickState((prev) => !prev);
   };
@@ -35,8 +35,12 @@ export default function DropDown({
     setClickState((prev) => !prev);
   };
 
+  let domNode = useClickOutside(() => {
+    setClickState(false);
+  });
+
   return (
-    <Container shouldHide={shouldHide} ref={containerRef} width={width}>
+    <Container shouldHide={shouldHide} ref={domNode} width={width}>
       <Pane
         direction="row"
         justify="space-between"
