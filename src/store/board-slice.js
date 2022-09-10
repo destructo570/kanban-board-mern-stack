@@ -7,9 +7,12 @@ const initialState = {
 };
 
 const replaceBoards = (state, action) => {
+  const boardsList = action.payload.boards;
+
   const newState = {
-    ...state,
-    allBoards: action.payload.boards,
+    activeBoard: boardsList.length !== 0 ? state.activeBoard : null,
+    activeBoardList: boardsList !== 0 ? state.activeBoardList : [],
+    allBoards: boardsList,
   };
   return newState;
 };
