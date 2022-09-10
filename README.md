@@ -1,9 +1,40 @@
-# Digital Kanban Board App
+# 📋 Kanban Board MERN Stack Web App
 
-A digital kanban board web app made with ReactJS. Manage all your projects and tasks at one place. Be more efficient and productive.
+A minimal kanban board web app made with MERN stack. Manage all your projects and tasks at one place.
 
-### Tech Stack
+Purpose of this project was to get more practice with MERN stack, creating a RESTFUL Api and backend with ExpressJs. Working with mongodb
+to add CRUD functionalities to the application, and adding user authentication with JsonWebToken.
+
+This repo contains the frontend of the app. Backend repo is [here.](https://github.com/destructo570/kanban-board-backend-rest-api)
+
+### [🚀 View Demo](https://digital-kanban-board-react.vercel.app/home)
+
+### 🧪 Features
+
+- Create new boards, lists and card.
+- Easily edit your boards, lists and cards.
+- Responsive and minimal interface.
+- User authentication using JWT.
+- RESTFUL Api to interact with the server.
+- Dark/Light theme.
+- Password salting.
+- Server side validation for data.
+
+### 👨‍🎓 Tech Stack
 - ReactJS
-- HTML, CSS, JSX
+- Redux state management
+- NodeJS
+- ExpressJs framework
+- MongoDB
+- Mongoose
 - React Router v6
+- BcryptJs
+- JsonWebToken
 - Emotion (Styled Component)
+- Axios to handle HTTP requests
+- Helmetg HTTP headers
+- HTML, CSS, JSX
+
+### 🎫 Todo
+- Fix Bugs and Edge cases
+- Add collaborative features
