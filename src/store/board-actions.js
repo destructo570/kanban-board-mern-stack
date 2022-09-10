@@ -19,6 +19,43 @@ export const createNewBoard = (title) => {
   };
 };
 
+export const updateBoard = (payload) => {
+  console.log(payload);
+  return async (dispatch) => {
+    const updateHandler = async () => {
+      return await axios.put(
+        Routes.BOARD + payload.boardId,
+        { title: payload.title },
+        {
+          headers: { Authorization: "Bearer " + getTokenFromStorage() },
+        }
+      );
+    };
+    try {
+      const response = await updateHandler();
+      dispatch(fetchAllBoards());
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+export const deleteBoard = (payload) => {
+  return async (dispatch) => {
+    const deleteHandler = async () => {
+      return await axios.delete(Routes.BOARD + payload.boardId, {
+        headers: { Authorization: "Bearer " + getTokenFromStorage() },
+      });
+    };
+    try {
+      const response = await deleteHandler();
+      dispatch(fetchAllBoards());
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
 export const createNewList = (payload) => {
   return async (dispatch) => {
     const createListHandler = async () => {

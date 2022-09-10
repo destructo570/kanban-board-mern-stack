@@ -18,6 +18,7 @@ export const OptionsList = styled.ul`
   margin-top: 0.5em;
   padding: 0;
   list-style: none;
+  z-index: 500;
 
   li:first-of-type {
     border-radius: 6px 6px 0 0;

@@ -45,7 +45,9 @@ export const BoardList = styled.ul`
 export const BoardListItem = styled.li`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding-left: 1em;
+  padding-right: 0.5em;
   cursor: pointer;
   color: ${({ isActive, theme }) =>
     isActive ? theme.colors.textPrimary : theme.colors.textSecondary};

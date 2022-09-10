@@ -3,7 +3,12 @@ import { useSelector } from "react-redux";
 import Wrapper from "../common/Wrapper/Wrapper";
 import BoardItem from "./BoardItem";
 import { BoardTitle, BoardList } from "./styles";
-export default function AllBoards({ dataSource, onBoardClick }) {
+export default function AllBoards({
+  dataSource,
+  onBoardClick,
+  onBoardEdit,
+  onBoardDelete,
+}) {
   const activeBoard = useSelector((state) => state.board.activeBoard);
   const [current, setCurrent] = useState(null);
 
@@ -15,9 +20,11 @@ export default function AllBoards({ dataSource, onBoardClick }) {
     return (
       <BoardItem
         key={item._id}
-        name={item.title}
+        board={item}
         isActive={current?._id === item._id}
         onClick={onBoardClick.bind(null, item._id)}
+        onBoardEdit={onBoardEdit.bind(null, item)}
+        onBoardDelete={onBoardDelete.bind(null, item)}
       />
     );
   });

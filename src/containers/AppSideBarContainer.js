@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import AllBoards from "../components/appSideBar/AllBoards";
@@ -10,11 +10,19 @@ import ThemeSwitch from "../components/appSideBar/ThemeSwitch";
 import EditDialog from "../components/common/editDialog/EditDialog";
 import Wrapper from "../components/common/Wrapper/Wrapper";
 import { signOut } from "../store/auth-actions";
-import { createNewBoard, fetchActiveBoard } from "../store/board-actions";
+import {
+  createNewBoard,
+  deleteBoard,
+  fetchActiveBoard,
+  updateBoard,
+} from "../store/board-actions";
 
 export default function AppSideBarContainer({ setIsDark }) {
   const allBoards = useSelector((state) => state.board.allBoards);
   const [showCreate, setShowCreate] = useState(false);
+  const [showEditBoard, setShowEditBoard] = useState(false);
+  const [editingBoard, setEditingBoard] = useState(null);
+
   const dispatch = useDispatch();
   const changeActiveBoardHandler = (boardId) => {
     dispatch(fetchActiveBoard(boardId));
@@ -24,6 +32,7 @@ export default function AppSideBarContainer({ setIsDark }) {
   };
 
   const toggleCreateDialog = () => setShowCreate((prev) => !prev);
+  const toggleEditDialog = () => setShowEditBoard((prev) => !prev);
   const logoClickHandeler = () => {
     dispatch(signOut());
   };
@@ -31,6 +40,20 @@ export default function AppSideBarContainer({ setIsDark }) {
   const createNewBoardHandler = (boardTitle) => {
     dispatch(createNewBoard({ boardTitle }));
     toggleCreateDialog();
+  };
+
+  const editBoardHandler = (board) => {
+    setEditingBoard(board);
+    toggleEditDialog();
+  };
+
+  const deleteBoardHandler = (board) => {
+    dispatch(deleteBoard({ boardId: board._id }));
+  };
+
+  const submitEditBoardHandler = (boardTitle) => {
+    dispatch(updateBoard({ title: boardTitle, boardId: editingBoard._id }));
+    toggleEditDialog();
   };
 
   return (
@@ -41,6 +64,8 @@ export default function AppSideBarContainer({ setIsDark }) {
           <AllBoards
             dataSource={allBoards}
             onBoardClick={changeActiveBoardHandler}
+            onBoardEdit={editBoardHandler}
+            onBoardDelete={deleteBoardHandler}
           />
           <CreateNewBoard handler={toggleCreateDialog} />
         </Wrapper>
@@ -52,6 +77,13 @@ export default function AppSideBarContainer({ setIsDark }) {
         <EditDialog
           onClose={toggleCreateDialog}
           onSubmit={createNewBoardHandler}
+          title="Create new board"
+        />
+      )}
+      {showEditBoard && (
+        <EditDialog
+          onClose={toggleEditDialog}
+          onSubmit={submitEditBoardHandler}
           title="Create new board"
         />
       )}
