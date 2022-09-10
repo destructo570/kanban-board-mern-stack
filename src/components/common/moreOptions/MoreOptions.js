@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { MoreOptionsPane, OptionsList, OptionItem } from "./styles";
 import { ReactComponent as MoreIcon } from "../../../assets/icons/more-light.svg";
+import useClickOutside from "../../../hooks/useClickOutside";
 
 export default function MoreOptions({ datasource }) {
   const [showMore, setShowMore] = useState(false);
@@ -13,9 +14,11 @@ export default function MoreOptions({ datasource }) {
     callback.call(null, e);
     toggleMoreOptions();
   };
-
+  let domNode = useClickOutside(() => {
+    setShowMore(false);
+  });
   return (
-    <MoreOptionsPane>
+    <MoreOptionsPane ref={domNode}>
       <MoreIcon onClick={toggleMoreOptions} />
       {showMore && (
         <OptionsList>
