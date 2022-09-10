@@ -20,9 +20,13 @@ export default function AddTaskContainer({ onClose }) {
   const activeBoard = useSelector((state) => state.board.activeBoard);
   const activeBoardList = useSelector((state) => state.board.activeBoardList);
   const [titleInput, setTitleInput] = useState("");
-  const [subTaskList, setSubTaskList] = useState([""]);
+  const [subTaskList, setSubTaskList] = useState([]);
   const [descInput, setDescInput] = useState("");
-  const [statusInput, setStatusInput] = useState(null);
+  const [statusInput, setStatusInput] = useState("");
+
+  useEffect(() => {
+    if (activeBoardList) setStatusInput(activeBoardList[0]);
+  }, [activeBoardList]);
 
   const statusChangeHandler = (status) => setStatusInput(status);
   const titleChangeHandler = (e) => setTitleInput(e.target.value);

@@ -13,7 +13,7 @@ export default function SubTaskList({ subTaskList, setSubTaskList }) {
     });
   };
   const removeClickHandler = (index) => {
-    if (subTaskList.length === 1) return;
+    if (subTaskList.length === 0) return;
     setSubTaskList((prev) => {
       const newState = prev.filter((item, idx) => index !== idx);
       return newState;
