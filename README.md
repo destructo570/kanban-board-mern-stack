@@ -20,6 +20,16 @@ This repo contains the frontend of the app. Backend repo is [here.](https://gith
 - Password salting.
 - Server side validation for data.
 
+<details>
+  ## <summary><h3>🌈Screenshots</h3></summary>
+  
+  ![alt text](https://imgur.com/WNHdOFY.png)
+  ![alt text](https://imgur.com/z5GvyXL.png)
+  ![alt text](https://imgur.com/XUYG21E.png)
+  ![alt text](https://imgur.com/tqsljl2.png)
+  
+</details>
+
 ### 👨‍🎓 Tech Stack
 - ReactJS
 - Redux state management
