@@ -21,7 +21,7 @@ This repo contains the frontend of the app. Backend repo is [here.](https://gith
 - Server side validation for data.
 
 <details>
-  ## <summary><h3>🌈Screenshots</h3></summary>
+  <summary><h3>🌈Screenshots</h3></summary>
   
   ![alt text](https://imgur.com/WNHdOFY.png)
   ![alt text](https://imgur.com/z5GvyXL.png)
