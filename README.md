@@ -44,7 +44,3 @@ This repo contains the frontend of the app. Backend repo is [here.](https://gith
 - Axios to handle HTTP requests
 - Helmetg HTTP headers
 - HTML, CSS, JSX
-
-### 🎫 Todo
-- Fix Bugs and Edge cases
-- Add collaborative features
